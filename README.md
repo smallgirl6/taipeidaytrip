@@ -45,5 +45,3 @@
 
 ![image](https://user-images.githubusercontent.com/111422800/201686113-62c7d240-db55-4d92-a10e-ea5b75d2f958.png)
 
-
-# taipeidaytrip
