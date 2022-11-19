@@ -1,5 +1,4 @@
 #中文顯示
-from asyncio.windows_events import NULL
 import io
 import sys
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
