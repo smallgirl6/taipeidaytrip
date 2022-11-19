@@ -6,7 +6,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 #---------------------------讀取.env的環境變數---------------------------------------------------------------------#
 import os
 from dotenv import load_dotenv
-import MySQLdb
+python
 
 load_dotenv()
 connection = MySQLdb.connect(
@@ -226,5 +226,5 @@ def booking():
 @app.route("/thankyou")
 def thankyou():
 	return render_template("thankyou.html")
-app.run(port=3000)	
+app.run(host="0.0.0.0",port=3000)	
 
