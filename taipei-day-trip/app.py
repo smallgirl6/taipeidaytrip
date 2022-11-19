@@ -5,7 +5,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 #---------------------------讀取.env的環境變數---------------------------------------------------------------------#
 import os
 from dotenv import load_dotenv
-python
+import MySQLdb
 
 load_dotenv()
 connection = MySQLdb.connect(
