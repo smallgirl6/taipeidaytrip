@@ -5,20 +5,16 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 #---------------------------讀取.env的環境變數---------------------------------------------------------------------#
 import os
 from dotenv import load_dotenv
-import MySQLdb
-
+import mysql.connector   #載入MSQL
 load_dotenv()
-connection = MySQLdb.connect(
+connection = mysql.connector.connect(
     host=os.getenv("MYSQL_HOST"),
     user=os.getenv("MYSQL_USER"),
     passwd=os.getenv("MYSQL_PASSWORD"),
     db=os.getenv("MYSQL_DATABASE"),
     charset=os.getenv("charset") #加這一行(utf8)可以不會讓中文變亂碼
 )
-
 #----------------------python MySQL資料庫---------------------------------------------------------------------------#
-import mysql.connector   #載入MSQL
-
 #連線到MySQL資料庫
 cursor = connection.cursor() # 獲取操作游標，也就是開始操作
 print("資料庫連線建立成功")
@@ -225,5 +221,5 @@ def booking():
 @app.route("/thankyou")
 def thankyou():
 	return render_template("thankyou.html")
-app.run(host="0.0.0.0",port=3000)	
+app.run(host="0.0.0.0",port=30000)	
 
