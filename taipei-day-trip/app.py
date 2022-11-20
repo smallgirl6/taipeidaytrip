@@ -134,7 +134,7 @@ def attractions():
                                 }
                     keywordReturnlist.append(json_keyworddata)#抓出keyword(一頁最大12個景點)放入keywordReturnlist中
                 json_keyworddata={
-                        "nextPage": nextPage,
+                        "nextPage": keywordnextPage,
                         "data":keywordReturnlist
                 }    
                 return jsonify(json_keyworddata),200
