@@ -1,7 +1,3 @@
-#中文顯示
-import io
-import sys
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 #---------------------------讀取.env的環境變數---------------------------------------------------------------------#
 import os
 from dotenv import load_dotenv
