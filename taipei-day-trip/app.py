@@ -8,7 +8,7 @@ connection = mysql.connector.connect(
     user=os.getenv("MYSQL_USER"),
     passwd=os.getenv("MYSQL_PASSWORD"),
     db=os.getenv("MYSQL_DATABASE"),
-    # charset=os.getenv("charset") #加這一行(utf8)可以不會讓中文變亂碼
+    charset=os.getenv("charset") #加這一行(utf8)可以不會讓中文變亂碼
 )
 #----------------------python MySQL資料庫---------------------------------------------------------------------------#
 #連線到MySQL資料庫
@@ -217,5 +217,5 @@ def booking():
 @app.route("/thankyou")
 def thankyou():
 	return render_template("thankyou.html")
-app.run(host="0.0.0.0",port=30000)	
+app.run(host="0.0.0.0",port=3000)	
 
