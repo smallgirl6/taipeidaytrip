@@ -300,10 +300,12 @@ body {
         width: 90%; 
     }
     .search-text input{
-        margin-left: 20px;
+        margin-left: 40px;
         margin-right: -20px;
+        font-size: 12px;
         width: 90%;
     }  
+    
     .Attractions{
         grid-template-columns: repeat(1, 1fr);/* auto-fill是自動填滿 */
     }
