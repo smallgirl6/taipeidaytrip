@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<head>
+    
+    <!-- 控制網頁縮放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>台北一日遊</title>
+    <link rel="stylesheet" type="text/css" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" >
+    <!-- <link rel="stylesheet" type="text/css" type="text/css" href="./index.css" >    -->
+</head>
+<body>
+    <div class="navigation-bar-frame">
+        <div class="navigation-bar">
+            <div class="left">台北一日遊</div>
+            <div class="right">
+                <div class="item">預定行程</div>
+                <div class="item">登入/註冊</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome-img">
+        <div class="welcome-box">
+            <div class="largetext">輕鬆享受台北一日悠閒</div>
+            <div class="smalltext">探索每個角落，體驗城市的深度旅遊行程</div>
+            <div class="search-bar">
+                <div class="search-text" >
+                    <input type="text" id="keyword" placeholder="輸入景點名稱查詢" >
+                    <button class="searchbar-icon-img" onclick="searchbar()"></button>            
+                </div>
+            </div>  
+            <div class="categoryMenu"></div>  
+        </div>       
+    </div>
+
+    <div id="Attractions" class="Attractions">
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>
+        <div class="Attraction">
+            <div class="Attraction-imgbox">
+                <img class= "Attraction-pic" src=" ">
+                <div class="Attraction-namebox">
+                    <div class="Attraction-name"></div>
+                </div>
+            </div>
+            <div class="Attraction-detail">
+                <div class="Attraction-mrt"></div>
+                <div class="Attraction-cat"></div>
+            </div>
+        </div>  
+    </div>
+    
+
+    <div class="footer">COPYRIGHT © 2021 台北一日遊</div>   
+<script type="text/javascript" src="../static/js/index.js"></script>
+</body>
+</html>
