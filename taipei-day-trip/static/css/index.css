@@ -1,0 +1,319 @@
+body {
+    margin: 0px;   /*緊貼頂部(上下左右)，沒有空隙*/
+    background: #FFFFFF;
+}
+.navigation-bar-frame{
+    position: fixed;/* 固定導覽列 */
+    width: 100%;
+    height: 54px;
+    top: 0;
+    z-index: 10;/* 滾動時會永遠顯示在最上面不會被蓋住 */
+    background: #FFFFFF;
+}
+.navigation-bar{
+    display:flex; /* 讓下一層次的項目水平排列 */
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 1200px;
+    height: 54px;
+    top: 0;
+    z-index: 10;/* 滾動時會永遠顯示在最上面不會被蓋住 */
+    background: #FFFFFF;
+}
+.left{
+    /* 台北一日遊 */
+    flex: none; /* 自動把剩下空間填滿 */
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+    color: #448899;
+}
+.right{
+    flex: auto; /* 固定配置*/
+    display: flex; /* 讓下一層次的項目水平置中 */
+    justify-content: flex-end;
+    align-items: center;
+}
+.item{
+    height: 14px;
+    line-height: 13px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #666666;
+    padding: 10px;
+    gap: 10px;  
+    text-align: center;
+}
+.welcome-img{
+    /* flex: none;  */
+    justify-content: center;
+    z-index: 8;
+    margin-top: 54px;
+    width: 100%;
+    height: 320px;
+    display: flex;
+    background: url(../pic/Here-section/welcome.png); 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.welcome-box{
+    width: 1200px;
+}
+.largetext{
+    z-index: 9;
+    flex: none; 
+    position: absolute; 
+    margin-top: 85px;
+    margin-left: 10px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    color: #F8F8F8;
+}
+.smalltext{  
+    z-index: 9;   
+    flex: none;
+    position: absolute; 
+    margin-top: 141px;
+    margin-left: 10px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    align-items: center;
+    color: #F8F8F8;
+    text-shadow: 0px 0px 30px #AABBCC;
+}
+.search-bar{
+    z-index: 9;
+    width: 460px;
+    flex: none; 
+    display: flex;
+    margin-top: 188px;
+    margin-left: 10px;
+}  
+.search-text{
+    flex: none; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    filter: drop-shadow(0px 0px 20px #AABBCC);
+    border-radius: 5px;
+}  
+
+.search-text input{
+    flex: none; 
+    width: 370px;
+    height: 16px;
+    padding: 15px; 
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    color: #757575;
+    border: 0px;
+    border-radius: 5px;
+}
+.searchbar-icon-img{
+    flex: none;
+    width: 60px;
+    height: 47px;
+    background: url(../pic/icon/icon_search.png);
+    background-color: #448899;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0px 5px 5px 0px;
+    border: 0px;
+}
+.categoryMenu{
+    display: none;
+}
+
+.categoryBox{
+    flex: none; 
+    display: grid;
+    width: 385px;
+    grid-template-columns:30% 30% 40%;
+    grid-template-rows:25% 25% 25% 25%;
+    z-index: 9;
+    margin-top: 5px;
+    margin-left: 10px;
+    border: 1px solid #E8E8E8;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px #AABBCC;
+    border-radius: 5px;
+    align-items: center;
+}
+.categoryItem{
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    padding: 10px 15px;
+    aspect-ratio:9/2;
+    text-align: center;
+}
+
+
+.Attractions{
+    text-align: center;/*查無結果文字對應到的STYLE */
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-row-gap:30px;/*每行間距 */
+    grid-column-gap:30px;/*每列間距 */
+    justify-content: center;/* 左右排列置中 */
+    margin-top: 55px;/*(414-(54-320))+15*/
+    margin-left: auto; 
+    margin-right: auto;
+    margin-bottom: 55px;/*(1374-(54+320+55+786+104))*/ 
+}
+.Attraction{
+    z-index: -1;
+    aspect-ratio: 270/239;
+    flex: none;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    margin: auto;
+    border-radius: 5px;
+}
+.Attraction-imgbox{
+    flex: none;
+    width:100%;  
+    aspect-ratio: 270/197;
+    border-radius: 5px 5px 0px 0px; 
+}
+.Attraction-imgbox img{
+    flex: none;
+    width:100%;
+    height: 100% ;
+    object-fit:cover;
+    border-radius: 5px 5px 0px 0px; 
+}
+.Attraction-namebox{
+    position: relative;
+    flex: none;
+    margin-top: -45px;
+    height:auto;
+    background: #000000;
+    opacity: 0.6;
+}
+.Attraction-name{
+    flex: none;
+    padding:10px;
+    width: 250px;
+    height: 20px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+.Attraction-detail{
+    flex: none;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding:10px ;
+    display: flex;
+    align-items: flex-start;
+}
+.Attraction-mrt{
+    flex: none;
+    width: 50%;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #757575;
+}
+.Attraction-cat{
+    flex: none;
+    width: 50%;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #757575;
+}
+.footer{
+    height: 104px;
+    line-height: 104px; /* 垂直置中 */
+    text-align: center;
+    background-color: #757575;
+    line-height: 104px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px ;
+    font-size: 16px ;
+    font-size: 16px ;
+}
+
+@media (max-width:1024px){
+    .navigation-bar{
+        width: 100%
+    }
+    .welcome-box{
+        margin-left: 20px;
+    }
+    .Attractions{
+        grid-template-columns: repeat(2, 1fr);/* auto-fill是自動填滿 */
+    }
+    .Attraction{
+        width:85% ;
+        height: 95%;
+    }
+}
+
+@media (max-width:640px){
+    .navigation-bar{
+        width: 100%
+    }
+    .welcome-box{
+        margin-left: 20px;
+        width: 100%;
+    }
+    .search-bar{
+        width: 85%; 
+    } 
+    .search-text{
+        width: 85%; 
+    }
+    .search-text input{
+        margin-left: 40px;
+        /* font-size: 12px; */
+        width: 85%;
+    }  
+    
+    .Attractions{
+        grid-template-columns: repeat(1, 1fr);/* auto-fill是自動填滿 */
+    }
+    .Attraction{
+        width:85% ;
+        height: 95%;
+    }
+    .footer{
+        visibility:hidden;/* 手機版隱藏 */
+    } 
+}

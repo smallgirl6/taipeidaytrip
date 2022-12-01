@@ -3,18 +3,21 @@ import os
 from dotenv import load_dotenv
 import mysql.connector   #載入MSQL
 load_dotenv()
-connection = mysql.connector.connect(
+
+connection1 = mysql.connector.connect(
     host=os.getenv("MYSQL_HOST"),
     user=os.getenv("MYSQL_USER"),
     passwd=os.getenv("MYSQL_PASSWORD"),
     db=os.getenv("MYSQL_DATABASE"),
     charset=os.getenv("charset") #加這一行(utf8)可以不會讓中文變亂碼
 )
-#----------------------python MySQL資料庫---------------------------------------------------------------------------#
-#連線到MySQL資料庫
-cursor = connection.cursor() # 獲取操作游標，也就是開始操作
-print("資料庫連線建立成功")
-
+connection2 = mysql.connector.connect(
+    host=os.getenv("MYSQL_HOST"),
+    user=os.getenv("MYSQL_USER"),
+    passwd=os.getenv("MYSQL_PASSWORD"),
+    db=os.getenv("MYSQL_DATABASE"),
+    charset=os.getenv("charset") #加這一行(utf8)可以不會讓中文變亂碼
+)
 #----------------------python flask網站後端相關設定--------------------------------------------------------------------------#
 import json
 from flask import *
@@ -31,6 +34,7 @@ def index():
 # /api/attractions?page=${page}&keyword=${keyword} methods=['GET']
 @app.route("/api/attractions",methods=["GET"])
 def attractions():
+    cursor1 = connection1.cursor() # 獲取操作游標，也就是開始操作
     #GET前端頁數或是關鍵字資料
     page=request.args.get("page")
     page=int(page)
@@ -41,11 +45,12 @@ def attractions():
     start = page*pageSize #根據使用者輸入頁數判斷要從哪筆資料開始呈現，第0頁為0開始(0...12...24)
 
     #開始連結資料庫，根據使用者輸入的頁數抓出需要的欄位部分的所有資料(for只輸入頁數的部分)
-    cursor.execute("SELECT _id,name,CAT,description,address,direction,MRT,latitude,langinfo,file FROM attractions LIMIT %s OFFSET %s",(pageSize,start,))#keyword,逗號不可刪
-    pageResult = cursor.fetchall()
-    cursor.execute("SELECT COUNT(*) FROM attractions")#查看看有幾筆資料
-    alldataCount = cursor.fetchone()#目前58筆
+    cursor1.execute("SELECT _id,name,CAT,description,address,direction,MRT,latitude,langinfo,file FROM attractions LIMIT %s OFFSET %s",(pageSize,start,))#keyword,逗號不可刪
+    pageResult = cursor1.fetchall() 
+    cursor1.execute("SELECT COUNT(*) FROM attractions")#查看看有幾筆資料
+    alldataCount = cursor1.fetchone()
     alldataCount =int(alldataCount[0])
+    
 
     #最後一頁的值lastpage，如果總資料數剛好能被12給整除，那跑出的結果會不一樣
     pageCount= alldataCount /pageSize #總共有幾頁  目前為4.833333333333333 　 大約是5頁(第0頁到第4頁)
@@ -94,13 +99,13 @@ def attractions():
     #若是有關鍵字的話，在資料庫搜尋相似關鍵字
     if keyword !=None:
     #開始連結資料庫，根據使用者輸入的keywor抓出需要的欄位部分的所有類似資料 比對景點分類、或模糊比對景點名稱的關鍵字
-        cursor.execute("SELECT _id,name,CAT,description,address,direction,MRT,latitude,langinfo,file FROM attractions WHERE name LIKE %s or CAT= %s LIMIT %s OFFSET %s",('%'+keyword+'%',keyword,pageSize,start,))
-        keywordResult = cursor.fetchall()
+        cursor1.execute("SELECT _id,name,CAT,description,address,direction,MRT,latitude,langinfo,file FROM attractions WHERE name LIKE %s or CAT= %s LIMIT %s OFFSET %s",('%'+keyword+'%',keyword,pageSize,start,))
+        keywordResult = cursor1.fetchall()
         keywordResulCount= len(keywordResult)
         #有在資料庫找到相似的keyword的話
         if  keywordResulCount>0:            
-            cursor.execute("SELECT COUNT(*) FROM attractions WHERE name LIKE %s or CAT= %s",('%'+keyword+'%',keyword,))#查看看有幾筆資料
-            keywordResultCount = cursor.fetchone()
+            cursor1.execute("SELECT COUNT(*) FROM attractions WHERE name LIKE %s or CAT= %s",('%'+keyword+'%',keyword,))#查看看有幾筆資料
+            keywordResultCount = cursor1.fetchone() 
             keywordResultCount =int(keywordResultCount[0])
 
             #最後一頁的值lastpage，如果總資料數剛好能被12給整除，那跑出的結果會不一樣
@@ -143,15 +148,17 @@ def attractions():
                             "error": True,
                             "message": "找不到此關鍵字"
                 }),500
-        
+
+
 #根據景點編號取得景點資料 /api/attraction/{attractionId}  methods=['GET']
 @app.route("/api/attraction/<attractionId>",methods=["GET"])
 def api_attraction(attractionId):
     #如果輸的景點編號是數字
     if attractionId.isdigit()==True :
         #開始連結資料庫，根據使用者輸入的景點編號抓出需要的欄位部分的所有資料
-        cursor.execute("SELECT _id,name,CAT,description,address,direction,MRT,latitude,langinfo,file FROM attractions WHERE _id = %s",(attractionId,))#keyword,逗號不可刪
-        attractionIdResult = cursor.fetchall()
+        cursor2 = connection1.cursor() # 獲取操作游標，也就是開始操作
+        cursor2.execute("SELECT _id,name,CAT,description,address,direction,MRT,latitude,langinfo,file FROM attractions WHERE _id = %s",(attractionId,))#keyword,逗號不可刪
+        attractionIdResult = cursor2.fetchall()
         attractionIdResultCount= len(attractionIdResult)
         #有在資料庫找到相似的attractionId的話 
         if attractionIdResultCount >0:
@@ -181,13 +188,15 @@ def api_attraction(attractionId):
                                 "error": True,
                                 "message": "伺服器內部錯誤"
                     }),500
+    
 
 # 取得景點分類名稱列表   /api/categories methods=['GET']
 @app.route("/api/categories",methods=["GET"])
 def api_categories():
+    cursor3 = connection2.cursor() # 獲取操作游標，也就是開始操作
     #開始連結資料庫，抓出需要的欄位部分的所有資料 
-    cursor.execute("SELECT DISTINCT CAT FROM attractions;")#過濾掉相同的值
-    categoriesResult = cursor.fetchall()
+    cursor3.execute("SELECT DISTINCT CAT FROM attractions;")#過濾掉相同的值
+    categoriesResult = cursor3.fetchall()
     categoriesCount= len(categoriesResult)
     categorieslist=[]
     for i in range(categoriesCount):
@@ -206,6 +215,7 @@ def api_categories():
                                 "error": True,
                                 "message": "無分類資料"
                 }),500
+    
 
 
 
