@@ -314,6 +314,6 @@ body {
         height: 95%;
     }
     .footer{
-        display: none;/* 手機版隱藏 */
+        visibility:hidden;/* 手機版隱藏 */
     } 
 }

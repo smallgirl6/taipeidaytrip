@@ -3,24 +3,20 @@ import os
 from dotenv import load_dotenv
 import mysql.connector   #載入MSQL
 load_dotenv()
-connection1 = mysql.connector.connect(
+connection = mysql.connector.connect(
     host=os.getenv("MYSQL_HOST"),
     user=os.getenv("MYSQL_USER"),
     passwd=os.getenv("MYSQL_PASSWORD"),
     db=os.getenv("MYSQL_DATABASE"),
     charset=os.getenv("charset") #加這一行(utf8)可以不會讓中文變亂碼
 )
-connection2 = mysql.connector.connect(
-    host=os.getenv("MYSQL_HOST"),
-    user=os.getenv("MYSQL_USER"),
-    passwd=os.getenv("MYSQL_PASSWORD"),
-    db=os.getenv("MYSQL_DATABASE"),
-    charset=os.getenv("charset") #加這一行(utf8)可以不會讓中文變亂碼
-)
-#----------------------python MySQL資料庫---------------------------------------------------------------------------#
-#連線到MySQL資料庫
-cursor1 = connection1.cursor() # 獲取操作游標，也就是開始操作
-print("資料庫連線建立成功")
+# connection2 = mysql.connector.connect(
+#     host=os.getenv("MYSQL_HOST"),
+#     user=os.getenv("MYSQL_USER"),
+#     passwd=os.getenv("MYSQL_PASSWORD"),
+#     db=os.getenv("MYSQL_DATABASE"),
+#     charset=os.getenv("charset") #加這一行(utf8)可以不會讓中文變亂碼
+# )
 #----------------------python flask網站後端相關設定--------------------------------------------------------------------------#
 import json
 from flask import *
@@ -37,7 +33,7 @@ def index():
 # /api/attractions?page=${page}&keyword=${keyword} methods=['GET']
 @app.route("/api/attractions",methods=["GET"])
 def attractions():
-    cursor1 = connection1.cursor() # 獲取操作游標，也就是開始操作
+    cursor1 = connection.cursor() # 獲取操作游標，也就是開始操作
     #GET前端頁數或是關鍵字資料
     page=request.args.get("page")
     page=int(page)
@@ -151,6 +147,7 @@ def attractions():
                             "error": True,
                             "message": "找不到此關鍵字"
                 }),500
+
 #根據景點編號取得景點資料 /api/attraction/{attractionId}  methods=['GET']
 @app.route("/api/attraction/<attractionId>",methods=["GET"])
 def api_attraction(attractionId):
@@ -188,15 +185,16 @@ def api_attraction(attractionId):
                                 "error": True,
                                 "message": "伺服器內部錯誤"
                     }),500
-cursor1.close() 
+    connection.close() 
+
 # 取得景點分類名稱列表   /api/categories methods=['GET']
 @app.route("/api/categories",methods=["GET"])
 def api_categories():
-    cursor2 = connection2.cursor() 
+    cursor2 = connection.cursor() 
     #開始連結資料庫，抓出需要的欄位部分的所有資料 
     cursor2.execute("SELECT DISTINCT CAT FROM attractions;")#過濾掉相同的值
     categoriesResult = cursor2.fetchall()
-    cursor2.close()  
+    connection.close() 
     categoriesCount= len(categoriesResult)
     categorieslist=[]
     for i in range(categoriesCount):
