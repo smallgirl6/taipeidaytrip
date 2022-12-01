@@ -189,7 +189,6 @@ def api_attraction(attractionId):
                                 "message": "伺服器內部錯誤"
                     }),500
     
-    connection1.close()
 
 # 取得景點分類名稱列表   /api/categories methods=['GET']
 @app.route("/api/categories",methods=["GET"])
@@ -200,7 +199,6 @@ def api_categories():
     categoriesResult = cursor3.fetchall()
     categoriesCount= len(categoriesResult)
     categorieslist=[]
-    connection2.close()
     for i in range(categoriesCount):
         newcategoriesResult=categoriesResult[i][0]
         categorieslist.append(newcategoriesResult)
