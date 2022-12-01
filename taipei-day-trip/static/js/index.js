@@ -8,7 +8,7 @@
         let attractions_mrts_Array= []; //建立一個Array等等用來放每筆資料的觀光景點(data.mrt)的資料
         let attractions_cat_Array= []; //建立一個Array等等用來放每筆資料的觀光景點(data.category)的資料
         let count = data["data"].length; //看有幾筆資料
-        
+
         for(let i=0; i< count; i++){ 
             attractions_names_Array.push((data["data"][i]).name); // 列表  
             attractions_imgs_Array.push((data["data"][i]).images[0]) ;//只取第一張圖
@@ -32,7 +32,7 @@
             let nextnameTextNode = document.createTextNode(attractions_names_Array[i]);  //用attractions_names_Array[0-11]抓出的景點創造文字節點
             nextname.appendChild(nextnameTextNode); //將剛剛的文字節點(nextnameTextNode)添加到新建div元素
             Attraction_namebox[i].replaceChild(nextname, Attraction_name[i]);  //用新的元素nextname来替換Attraction_name[i]              
-            
+
             //圖片
             let nextImg = document.createElement("img");
             nextImg.setAttribute("class", "Attraction-pic");
@@ -54,7 +54,7 @@
             Attraction_detail[i].replaceChild(nextCat,Attraction_cat[i]);     
         };   
     });          
-    
+
 //載入第二頁後的資料+生成HTML的標籤
     //用Intersection Observer API，必須觀察1.page是否為null  2.觀察有關鍵字的第二頁或沒有關鍵字的第二頁
     let page = 1 
@@ -79,7 +79,7 @@
                     return response.json();
                 }).then(function(data){
                     let nextpage= data.nextPage;     //下一page
-                    let count = data["data"].length; //看有幾筆資料
+                    // let count = data["data"].length; //看有幾筆資料
                     for(let i=0; i< data["data"].length; i++){ 
                     //做下一頁新的HTML框
                         //外框 每個景點
@@ -137,9 +137,16 @@
             }
         }); 
     }, options); 
+
     const footer = document.querySelector(".footer");
     observer.observe(footer); // 指定觀察footer
-    
+
+    // 若跑完全部葉面想要再指定關鍵字查詢的話，再把剛剛被關掉的指定觀察footer給開啟
+    const searchbarbtn = document.getElementById("searchbar-icon-img");
+    searchbarbtn.addEventListener("click",function(event){
+        observer.observe(footer);
+    });
+
 //搜尋欄位
     //抓取使用者輸入資料
     const inputkeyword = document.getElementById("keyword");
@@ -152,7 +159,6 @@
         fetch(src,{methods:"GET",}).then(function(response){
             return response.json();
         }).then(function(data){
-            console.log(data)
             if (data["error"]==true){ //如果沒有對應資料的話API會給["error"]==true
                 Attractions.innerHTML = "查無相關景點";//把原本圖片給洗掉顯示"查無相關景點"
             }
@@ -208,6 +214,7 @@
                 Attractions.appendChild(NextAttraction);
             };
             isLoading = false;
+            page = nextpage;
         });
     };
 
@@ -231,7 +238,7 @@
         }
         //加到父div (categorybox)
         categorymenu.appendChild(categorybox);
-    
+
         //監聽使用者的行動
         //點選到搜尋區塊就顯示categorymenu
         const inputkeyword = document.getElementById("keyword");

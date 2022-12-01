@@ -92,6 +92,7 @@ body {
 }
 .search-bar{
     z-index: 9;
+    width: 460px;
     flex: none; 
     display: flex;
     margin-top: 188px;
@@ -109,10 +110,9 @@ body {
 
 .search-text input{
     flex: none; 
-    /* width: 366px; */
-    height: 14px;
-    margin-left: 15px;
-    margin-right: 30px; 
+    width: 370px;
+    height: 16px;
+    padding: 15px; 
     font-family: 'Noto Sans TC';
     font-style: normal;
     font-weight: 700;
@@ -120,11 +120,12 @@ body {
     line-height: 16px;
     color: #757575;
     border: 0px;
+    border-radius: 5px;
 }
 .searchbar-icon-img{
     flex: none;
     width: 60px;
-    height: 46px;
+    height: 47px;
     background: url(../pic/icon/icon_search.png);
     background-color: #448899;
     background-repeat: no-repeat;
@@ -294,16 +295,15 @@ body {
         width: 100%;
     }
     .search-bar{
-        width: 90%; 
+        width: 85%; 
     } 
     .search-text{
-        width: 90%; 
+        width: 85%; 
     }
     .search-text input{
         margin-left: 40px;
-        margin-right: -20px;
-        font-size: 12px;
-        width: 90%;
+        /* font-size: 12px; */
+        width: 85%;
     }  
     
     .Attractions{
