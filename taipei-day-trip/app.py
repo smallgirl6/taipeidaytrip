@@ -26,9 +26,6 @@ app.config["JSON_AS_ASCII"]=False
 app.config["TEMPLATES_AUTO_RELOAD"]=True
 app.config["JSON_SORT_KEYS"]=False  #防止Flask jsonify對數據進行排序
 # #----------------------python flask網站後端--------------------------------------------------------------------------#
-@app.route("/")
-def index():
-	return render_template("index.html")
 
 # 取得景點資料列表API         
 # /api/attractions?page=${page}&keyword=${keyword} methods=['GET']
@@ -215,10 +212,11 @@ def api_categories():
                                 "error": True,
                                 "message": "無分類資料"
                 }),500
-    
 
-
-
+@app.route("/")
+def index():
+	return render_template("index.html")
+@app.route("/attraction/<id>")
 def attraction(id):
 	return render_template("attraction.html")
 @app.route("/booking")
@@ -227,5 +225,7 @@ def booking():
 @app.route("/thankyou")
 def thankyou():
 	return render_template("thankyou.html")
+
+
 app.run(host="0.0.0.0",port=3000)	
 

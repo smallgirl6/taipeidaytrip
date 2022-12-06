@@ -17,6 +17,7 @@
         };
 
         //獲取所有的 <標籤> 元素
+        let Attractions = document.querySelectorAll(".Attractions");
         let Attraction_imgbox = document.querySelectorAll(".Attraction-imgbox");
         let Attraction_pic = document.querySelectorAll(".Attraction-pic"); 
         let Attraction_namebox = document.querySelectorAll(".Attraction-namebox"); 
@@ -51,9 +52,15 @@
             nextCat.setAttribute("class", "Attraction-cat");
             let nextcatTextNode = document.createTextNode(attractions_cat_Array[i]);
             nextCat.appendChild(nextcatTextNode);
-            Attraction_detail[i].replaceChild(nextCat,Attraction_cat[i]);     
+            Attraction_detail[i].replaceChild(nextCat,Attraction_cat[i]);
+            
+            //景點詳細連結
+            let Attraction_link = document.querySelectorAll(".Attraction-link");
+            for(let i = 0; i<Attraction_link.length; i++){
+                Attraction_link[i].href = `/attraction/${[i+1]}`;
+            }; 
         };   
-    });          
+    });
 
 //載入第二頁後的資料+生成HTML的標籤
     //用Intersection Observer API，必須觀察1.page是否為null  2.觀察有關鍵字的第二頁或沒有關鍵字的第二頁
@@ -79,52 +86,57 @@
                     return response.json();
                 }).then(function(data){
                     let nextpage= data.nextPage;     //下一page
-                    // let count = data["data"].length; //看有幾筆資料
                     for(let i=0; i< data["data"].length; i++){ 
                     //做下一頁新的HTML框
                         //外框 每個景點
                         let Attractions = document.getElementById("Attractions");
-                            //每個景點 Attraction(NextAttraction)
+                            //每個景點的連結 Attraction-link
+                        let NextAttraction_link = document.createElement("a"); 
+                        NextAttraction_link.setAttribute("class", "Attraction-link");
+                        NextAttraction_link.setAttribute("href", `/attraction/${data.data[i].id}`);
+                                //每個景點 Attraction(NextAttraction)
                         let NextAttraction = document.createElement("div"); 
                         NextAttraction.setAttribute("class", "Attraction");
-                                //照片盒Attraction-imgbox(NextAttraction-imgbox)
+                                    //照片盒Attraction-imgbox(NextAttraction-imgbox)
                         let NextAttraction_imgbox = document.createElement("div");   
                         NextAttraction_imgbox.setAttribute("class", "Attraction-imgbox"); 
-                                    //照片Attraction-pic(NextAttraction-pic)
+                                        //照片Attraction-pic(NextAttraction-pic)
                         let NextAttraction_pic = document.createElement("img");   
                         NextAttraction_pic.setAttribute("class", "Attraction-pic");
                         NextAttraction_pic.src = (data["data"][i]).images[0];
                         //加到父div        
                         NextAttraction_imgbox.appendChild(NextAttraction_pic);
-                                    //景點名盒Attraction-namebox(NextAttraction-namebox)
+                                        //景點名盒Attraction-namebox(NextAttraction-namebox)
                         let NextAttraction_namebox = document.createElement("div");   
                         NextAttraction_namebox.setAttribute("class", "Attraction-namebox"); 
-                                        //景點名Attraction-name(NextAttraction-name)
+                                            //景點名Attraction-name(NextAttraction-name)
                         let NextAttraction_name = document.createElement("div");   
                         NextAttraction_name.setAttribute("class", "Attraction-name");
                         NextAttraction_name.textContent = (data["data"][i]).name; 
                         //加到父div        
                         NextAttraction_namebox.appendChild(NextAttraction_name);
-                                //詳細Attraction-detail(NextAttraction-detail)
+                                    //詳細Attraction-detail(NextAttraction-detail)
                         let NextAttraction_detail = document.createElement("div");   
                         NextAttraction_detail.setAttribute("class", "Attraction-detail"); 
-                                    //捷運Attraction-mrt(NextAttraction-mrt)
+                                        //捷運Attraction-mrt(NextAttraction-mrt)
                         let NextAttraction_mrt = document.createElement("div");   
                         NextAttraction_mrt.setAttribute("class", "Attraction-mrt");
                         NextAttraction_mrt.textContent = (data["data"][i]).mrt;
                         //加到父div        
                         NextAttraction_detail.appendChild(NextAttraction_mrt); 
-                                    //分類Attraction-cat(NextAttraction-cat)
+                                        //分類Attraction-cat(NextAttraction-cat)
                         let NextAttraction_cat = document.createElement("div");   
                         NextAttraction_cat.setAttribute("class", "Attraction-cat"); 
                         NextAttraction_cat.textContent = (data["data"][i]).category;
+                        
                         //加到父div        
                         NextAttraction_detail.appendChild(NextAttraction_cat);     
                         //加到父div        
                         NextAttraction.appendChild(NextAttraction_imgbox);
                         NextAttraction.appendChild(NextAttraction_namebox);       
-                        NextAttraction.appendChild(NextAttraction_detail);
-                        Attractions.appendChild(NextAttraction);                                               
+                        NextAttraction.appendChild(NextAttraction_detail);  
+                        NextAttraction_link.appendChild(NextAttraction);  
+                        Attractions.appendChild(NextAttraction_link);                                           
                     };
                     if (nextpage != null){
                         page = nextpage;
@@ -171,37 +183,41 @@
             //做新的HTML框
                 //外框 每個景點
                 let Attractions = document.getElementById("Attractions");
-                    //每個景點 Attraction(NextAttraction)
+                    //每個景點的連結 Attraction-link
+                let NextAttraction_link = document.createElement("a"); 
+                NextAttraction_link.setAttribute("class", "Attraction-link");
+                NextAttraction_link.setAttribute("href", `/attraction/${data.data[i].id}`);
+                        //每個景點 Attraction(NextAttraction)
                 let NextAttraction = document.createElement("div"); 
                 NextAttraction.setAttribute("class", "Attraction");
-                        //照片盒Attraction-imgbox(NextAttraction-imgbox)
+                            //照片盒Attraction-imgbox(NextAttraction-imgbox)
                 let NextAttraction_imgbox = document.createElement("div");   
                 NextAttraction_imgbox.setAttribute("class", "Attraction-imgbox"); 
-                            //照片Attraction-pic(NextAttraction-pic)
+                                //照片Attraction-pic(NextAttraction-pic)
                 let NextAttraction_pic = document.createElement("img");   
                 NextAttraction_pic.setAttribute("class", "Attraction-pic");
                 NextAttraction_pic.src = (data["data"][i]).images[0];
                 //加到父div        
                 NextAttraction_imgbox.appendChild(NextAttraction_pic);
-                            //景點名盒Attraction-namebox(NextAttraction-namebox)
+                                //景點名盒Attraction-namebox(NextAttraction-namebox)
                 let NextAttraction_namebox = document.createElement("div");   
                 NextAttraction_namebox.setAttribute("class", "Attraction-namebox"); 
-                                //景點名Attraction-name(NextAttraction-name)
+                                    //景點名Attraction-name(NextAttraction-name)
                 let NextAttraction_name = document.createElement("div");   
                 NextAttraction_name.setAttribute("class", "Attraction-name");
                 NextAttraction_name.textContent = (data["data"][i]).name; 
                 //加到父div        
                 NextAttraction_namebox.appendChild(NextAttraction_name);
-                        //詳細Attraction-detail(NextAttraction-detail)
+                            //詳細Attraction-detail(NextAttraction-detail)
                 let NextAttraction_detail = document.createElement("div");   
                 NextAttraction_detail.setAttribute("class", "Attraction-detail"); 
-                            //捷運Attraction-mrt(NextAttraction-mrt)
+                                //捷運Attraction-mrt(NextAttraction-mrt)
                 let NextAttraction_mrt = document.createElement("div");   
                 NextAttraction_mrt.setAttribute("class", "Attraction-mrt");
                 NextAttraction_mrt.textContent = (data["data"][i]).mrt;
                 //加到父div        
                 NextAttraction_detail.appendChild(NextAttraction_mrt); 
-                            //分類Attraction-cat(NextAttraction-cat)
+                                //分類Attraction-cat(NextAttraction-cat)
                 let NextAttraction_cat = document.createElement("div");   
                 NextAttraction_cat.setAttribute("class", "Attraction-cat"); 
                 NextAttraction_cat.textContent = (data["data"][i]).category;
@@ -211,7 +227,8 @@
                 NextAttraction.appendChild(NextAttraction_imgbox);
                 NextAttraction.appendChild(NextAttraction_namebox);       
                 NextAttraction.appendChild(NextAttraction_detail);
-                Attractions.appendChild(NextAttraction);
+                NextAttraction_link.appendChild(NextAttraction);  
+                Attractions.appendChild(NextAttraction_link); 
             };
             isLoading = false;
             page = nextpage;
@@ -260,5 +277,7 @@
             }); 
         }; 
     });
+
+
 
           

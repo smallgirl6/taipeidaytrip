@@ -1,0 +1,381 @@
+body {
+    margin: 0px;   /*緊貼頂部(上下左右)，沒有空隙*/
+    background: #FFFFFF;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-size: 16px;
+    color: #666666;
+}
+.navigation-bar-frame{
+    position: fixed;/* 固定導覽列 */
+    width: 100%;
+    height: 54px;
+    top: 0;
+    z-index: 10;/* 滾動時會永遠顯示在最上面不會被蓋住 */
+    background: #FFFFFF;
+}
+.navigation-bar{
+    display:flex; /* 讓下一層次的項目水平排列 */
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 1200px;
+    height: 54px;
+    top: 0;
+    z-index: 10;/* 滾動時會永遠顯示在最上面不會被蓋住 */
+    background: #FFFFFF;
+}
+.left{
+    /* 台北一日遊 */
+    flex: none; /* 自動把剩下空間填滿 */
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+    color: #448899;
+}
+.right{
+    flex: auto; /* 固定配置*/
+    display: flex; /* 讓下一層次的項目水平置中 */
+    justify-content: flex-end;
+    align-items: center;
+}
+.item{
+    height: 14px;
+    line-height: 13px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #666666;
+    padding: 10px;
+    gap: 10px;  
+    text-align: center;
+}
+.Attraction-Slideshow{
+    display: flex;
+    width: 1200px;
+    margin-top: 54px;
+    margin-right:auto;
+    margin-left: auto;
+}
+.attraction-pic-box{
+    position: relative;
+    /* aspect-ratio: 540/460; */
+    width: 550px;
+    height: 406px;
+    margin-top: 37px;
+    margin-left:15px ;
+    border-radius: 5px;
+}
+.attraction-pic{
+    /* flex: none;
+    position: absolute; */
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius: 5px; 
+    display: none;
+}
+.left-arrow{
+    position: absolute;
+    z-index: 2;
+    top: 185px;
+    left: 10px;    
+    width: 36px;
+    height: 36px;
+    opacity: 0.75;
+}
+.right-arrow{
+    position: absolute;
+    z-index: 2;
+    top: 185px;
+    right: 10px;    
+    width: 36px;
+    height: 36px;
+    opacity: 0.75;
+}
+.dotsbox{
+    position: absolute;
+    left:0px;
+    right:0px;
+    display: flex;
+    z-index: 2;
+    top: 381px;
+    justify-content: center;
+}
+.dot{
+    z-index: 2;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 6px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+    background-color: black;
+}
+.Attraction-Bookingsession{
+    width: 600px;
+    height: 406px;/* 594-583 */
+    margin-top: 37px;
+    padding-left:30px ;
+}
+.attraction-name{
+    font-weight: 700;
+    line-height: 33px;
+    font-size: 24px;
+}  
+.attraction-cat-mrt{
+    margin-top: 15px;
+    font-weight: 500;
+    line-height: 22px;
+}
+.booking-form{
+    position:relative;
+    height: 302px;
+    margin-top: 15px;
+    padding-left:20px;
+    padding-top: 15px;
+    background: #E8E8E8;
+    border-radius: 5px;
+}
+.booking-title{
+    position:absolute;
+    font-weight: 700;
+    line-height: 22px;
+}
+.booking-content{
+    position:absolute;
+    font-weight: 500;
+    top: 52px;
+    line-height: 24px;  
+}
+.booking-date{
+    position:absolute;
+    top: 100px;
+    font-weight: 700;
+    width: 81px;
+    line-height: 17px; 
+}
+.booking-date-input{
+    position: absolute;
+    top: 91px;
+    left: 106px;
+    width: 183px;
+    height: 25px;
+    background-color: white;
+    border:0 none;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(../static/pic/icon/icon_calendar.png) no-repeat;
+    width: 24px;
+    height: 24px;
+    border-width: thin;
+}
+.booking-time{
+    position:absolute;
+    top: 141px;
+    font-weight: 700;
+    width: 81px;   
+    line-height: 22px;
+}
+.booking-time-radio{
+    position:absolute;
+    top: 141px;
+    left: 106px;
+    height: 22px;
+    font-weight: 500;
+}
+input[type=radio] {
+    height: 22px;
+    width: 22px;
+    accent-color: #448899;
+    vertical-align:middle;
+    margin: 0px;   
+}
+.booking-fee{
+    position:absolute;
+    top: 178px;
+    font-weight: 700;
+    width: 81px;   
+    line-height: 22px;
+}
+.booking-TWD{
+    position:absolute;
+    top: 182px;
+    left: 106px;
+    line-height: 16px; 
+    font-weight: 500;
+}
+.booking-submit{
+    position: absolute;
+    top: 225px;
+    left: 20px;
+    width: 154px;
+    height: 36px;
+    border: none;
+    background-color: #448899;
+    border-radius: 5px;
+    color: white;
+    line-height: 36px;
+    font-size: 19px;
+    font-weight: 400;
+}
+hr{
+    position: relative;
+    width: 1200px;  
+    margin: auto;
+    top: 37px;
+    border-top: 1px solid #E8E8E8;
+}
+.Attraction-Info{
+    position: relative;
+    width: 1200px;
+    top: 98px;
+    margin:auto;
+}
+.attraction-introduce{
+    font-weight: 400;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.attraction-addres-title{
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    line-height: 32px;
+}
+.attraction-addres{
+    font-weight: 400;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 24px;
+}
+.attraction-transport-title{
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    line-height: 32px;
+}
+.attraction-transport{
+    font-weight: 400;
+    margin-left: 10px;
+    margin-right: 10px;  
+}
+.footer{
+    margin-top: 224px;
+    height: 104px;
+    text-align: center;
+    background-color: #757575;
+    line-height: 104px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px ;
+}
+@media (max-width:1024px){
+    .navigation-bar{
+        width: 100%
+    }
+    .welcome-box{
+        margin-left: 20px;
+    }
+    .Attraction-Slideshow{
+        width: 100%;
+    }
+    .booking-form{
+        margin-right: 10px;
+    }
+    .Attraction-Info{
+        width: 100%;
+    }
+
+}
+@media (max-width:640px){
+    .navigation-bar{
+        width: 100%
+    }
+    .Attraction-Slideshow{
+        display: block;
+        width: 100%;
+    }
+    .attraction-pic-box{
+        margin-left: 0px ;
+        width: 100%;
+        height: 350px;
+    }
+    .left-arrow{
+        top: 157px;
+    }
+    .right-arrow{
+        top: 157px;
+    }
+    .dotsbox{
+        top: 328px;
+    }
+    .Attraction-Bookingsession{
+        width: 100%;
+        padding-left: 10px;
+    }
+    .dot{
+        height: 10px;
+        width: 10px;
+        margin: 0 5px;
+    }
+    .booking-form{
+        width: 90%;
+        margin-right: 10px;
+    }
+    .booking-content{
+        padding-right:20px ;  
+    }
+    .booking-date{
+        top: 124px;
+    }
+    .booking-date-input{
+        top: 115px;
+    }
+    .booking-time{
+        top: 165px;
+    }
+    .booking-time-radio{
+        top: 165px;
+    }
+    .booking-fee{
+        top: 202px;
+    }
+    .booking-TWD{
+        top: 206px;
+    }
+    .booking-submit{
+        top: 249px;
+        font-size: 16px;
+    }
+    hr{
+        width:98%;
+    }
+    .Attraction-Info{
+        width:98%;
+    }
+    .footer{
+        visibility:hidden;/* 手機版隱藏 */
+    } 
+}
+
+
+
