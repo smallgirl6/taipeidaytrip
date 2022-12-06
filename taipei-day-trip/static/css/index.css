@@ -107,7 +107,6 @@ body {
     filter: drop-shadow(0px 0px 20px #AABBCC);
     border-radius: 5px;
 }  
-
 .search-text input{
     flex: none; 
     width: 370px;
@@ -176,6 +175,9 @@ body {
     margin-left: auto; 
     margin-right: auto;
     margin-bottom: 55px;/*(1374-(54+320+55+786+104))*/ 
+}
+a {
+    text-decoration:none;
 }
 .Attraction{
     z-index: -1;
