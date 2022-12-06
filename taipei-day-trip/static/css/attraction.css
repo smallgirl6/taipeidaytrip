@@ -61,8 +61,8 @@ body {
     margin-left: auto;
 }
 .attraction-pic-box{
-    position: relative;
     /* aspect-ratio: 540/460; */
+    position: relative;
     width: 550px;
     height: 406px;
     margin-top: 37px;
@@ -70,8 +70,7 @@ body {
     border-radius: 5px;
 }
 .attraction-pic{
-    /* flex: none;
-    position: absolute; */
+    flex: none;
     width: 100%;
     height: 100%;
     object-fit:cover;
@@ -288,25 +287,24 @@ hr{
     font-weight: 700;
     font-size: 16px ;
 }
-@media (max-width:1024px){
+@media (max-width:1200px){
     .navigation-bar{
         width: 100%
     }
-    .welcome-box{
-        margin-left: 20px;
-    }
     .Attraction-Slideshow{
-        width: 100%;
+        width: 90%;
     }
     .booking-form{
         margin-right: 10px;
     }
     .Attraction-Info{
-        width: 100%;
+        width: 90%;
     }
-
+    hr{
+        width: 90%;
+    }
 }
-@media (max-width:640px){
+@media (max-width:740px){
     .navigation-bar{
         width: 100%
     }
@@ -315,7 +313,8 @@ hr{
         width: 100%;
     }
     .attraction-pic-box{
-        margin-left: 0px ;
+        margin-right: 0px;
+        margin-left: 0px;
         width: 100%;
         height: 350px;
     }
@@ -367,14 +366,11 @@ hr{
         font-size: 16px;
     }
     hr{
-        width:98%;
+        width:95%;
     }
     .Attraction-Info{
-        width:98%;
+        width:95%;
     }
-    .footer{
-        visibility:hidden;/* 手機版隱藏 */
-    } 
 }
 
 
