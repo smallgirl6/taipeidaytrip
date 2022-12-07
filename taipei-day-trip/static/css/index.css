@@ -107,7 +107,6 @@ body {
     filter: drop-shadow(0px 0px 20px #AABBCC);
     border-radius: 5px;
 }  
-
 .search-text input{
     flex: none; 
     width: 370px;
@@ -165,8 +164,6 @@ body {
     aspect-ratio:9/2;
     text-align: center;
 }
-
-
 .Attractions{
     text-align: center;/*查無結果文字對應到的STYLE */
     display: grid;
@@ -179,6 +176,9 @@ body {
     margin-right: auto;
     margin-bottom: 55px;/*(1374-(54+320+55+786+104))*/ 
 }
+a {
+    text-decoration:none;
+}
 .Attraction{
     z-index: -1;
     aspect-ratio: 270/239;
@@ -187,6 +187,7 @@ body {
     border: 1px solid #E8E8E8;
     margin: auto;
     border-radius: 5px;
+    cursor:pointer;
 }
 .Attraction-imgbox{
     flex: none;
@@ -210,7 +211,6 @@ body {
     opacity: 0.6;
 }
 .Attraction-name{
-    flex: none;
     padding:10px;
     width: 250px;
     height: 20px;
@@ -221,6 +221,7 @@ body {
     line-height: 13px;
     display: flex;
     align-items: center;
+    text-align: left;
     color: #FFFFFF;
 }
 .Attraction-detail{
@@ -266,8 +267,6 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 16px ;
-    font-size: 16px ;
-    font-size: 16px ;
 }
 
 @media (max-width:1024px){
@@ -283,6 +282,9 @@ body {
     .Attraction{
         width:85% ;
         height: 95%;
+    }
+    .Attraction-name{
+        width:85% ;
     }
 }
 
@@ -305,13 +307,15 @@ body {
         /* font-size: 12px; */
         width: 85%;
     }  
-    
     .Attractions{
         grid-template-columns: repeat(1, 1fr);/* auto-fill是自動填滿 */
     }
     .Attraction{
         width:85% ;
         height: 95%;
+    }
+    .Attraction-name{
+        width:85% ;
     }
     .footer{
         visibility:hidden;/* 手機版隱藏 */
