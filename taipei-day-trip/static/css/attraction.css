@@ -52,6 +52,204 @@ body {
     padding: 10px;
     gap: 10px;  
     text-align: center;
+    cursor: pointer;
+}
+.Attraction-box{
+    display: flex;
+    justify-content: center;
+    margin-right:auto;
+    margin-left: auto;
+    margin-top: 54px;
+}
+.signin{
+    display: none;
+    z-index: 10;
+    position: absolute;
+    margin-top: 26px; /* 80-54 */
+    width: 340px;
+    height: 275px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 60px #AAAAAA;
+    border-radius: 6px;
+}
+.signin-bar{
+    width: 340px;
+    height: 10px;
+    border-radius: 6px 6px 0px 0px;
+    background: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+}
+.signin-box{
+    width: 310px;
+    height: 235px;
+    margin: 15px;
+}
+.signin-title{
+    margin-bottom: 5px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27px;
+    display: flex;
+    text-align: center;
+    color: #666666; 
+    justify-content: end; 
+}
+.signin-close{
+    width: 16px;
+    height: 16px;   
+    margin-left: 70px;
+    cursor: pointer;
+}
+.signin-input{
+    margin-top: 10px;
+    width: 276px;
+    height: 13px;
+    padding: 15px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #757575;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+}
+.signin-btn{
+    margin-top: 10px;
+    width: 310px;
+    height: 47px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 27px;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    background-color: #448899;
+    border: none;
+    border-radius: 5px;
+}
+.signup-message{
+    display: none;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    align-items: center;
+    text-align: center;
+    color:red;
+}
+.goto-signup{
+    margin-top: 10px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    align-items: center;
+    text-align: center;
+    color: #666666;
+    cursor: pointer;
+}
+.signup{
+    display: none;
+    z-index: 10;
+    position: absolute;
+    margin-top: 26px; /* 80-54 */
+    width: 340px;
+    height: 332px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 60px #AAAAAA;
+    border-radius: 6px;
+}
+.signup-bar{
+    width: 340px;
+    height: 10px;
+    border-radius: 6px 6px 0px 0px;
+    background: linear-gradient(270deg, #337788 0%, #66AABB 100%);
+}
+.signup-box{
+    width: 310px;
+    height: 250px;
+    margin: 15px;
+}
+.signup-title{
+    margin-bottom: 5px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27px;
+    display: flex;
+    text-align: center;
+    color: #666666; 
+    justify-content: end; 
+}
+.signup-close{
+    width: 16px;
+    height: 16px;   
+    margin-left: 70px;
+    cursor: pointer;
+}
+.signup-input{
+    margin-top: 10px;
+    width: 276px;
+    height: 13px;
+    padding: 15px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #757575;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+}
+.signup-btn{
+    margin-top: 10px;
+    width: 310px;
+    height: 47px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 27px;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    background-color: #448899;
+    border: none;
+    border-radius: 5px;
+}
+.signin-message{
+    display: none;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    align-items: center;
+    text-align: center;
+    color:red;
+}
+.goto-signin{
+    margin-top: 10px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    align-items: center;
+    text-align: center;
+    color: #666666;
+    cursor: pointer;
 }
 .Attraction-Slideshow{
     display: flex;
