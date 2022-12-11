@@ -8,52 +8,85 @@
     <link rel="stylesheet" type="text/css" type="text/css" href="{{ url_for('static', filename='css/attraction.css') }}" >
     <!-- <link rel="stylesheet" type="text/css" type="text/css" href="./attraction.css" >    -->
 </head>
-<body>
-    <div class="navigation-bar-frame">
+<body id="body">
+    <div class="navigation-bar-frame" id="navigation-bar-frame">
         <div class="navigation-bar">
             <div class="left">台北一日遊</div>
             <div class="right">
                 <div class="item">預定行程</div>
-                <div class="item">登入/註冊</div>
+                <div class="item" id="signin-signup"onclick="signinsignup()">登入/註冊</div>
             </div>
         </div>
     </div>
 
-    <div class="Attraction-Slideshow">
-        <div class="attraction-pic-box">
-            <a class="left-arrow" onclick="arrow(-1)">
-                <img src="../static/pic/icon/btn_leftArrow.png">
-            </a>
-            <a class="right-arrow" onclick="arrow(1)">
-                <img src="../static/pic/icon/btn_rightArrow.png">
-            </a>
-            <div class="dotsbox">
-                <!-- <span class="dot" onclick="currentdot(1)"></span> -->
+    <div class="Attraction-box">
+        <div class="signin">
+            <div class="signin-bar"></div>
+            <div class="signin-box">
+                <div class="signin-title">登入會員帳號
+                    <img src="../static/pic/icon/icon_close.png" class="signin-close">
+                </div>
+                <form name="signin_form" >
+                    <input class="signin-input" type="email" placeholder="輸入電子信箱" name="signin_email"/>
+                    <input class="signin-input" type="password" placeholder="輸入密碼" name="signin_password"/>                                                       
+                </form>
+                <button class="signin-btn" name="signin_btn" onclick="signinsubmit()">登入帳戶</button>
+                <div class="signin-message" id="signin-message"></div>
+                <div class="goto-signup">還沒有帳戶?點此註冊</div>
             </div>
         </div>
+        <div class="signup">
+            <div class="signup-bar"></div>
+            <div class="signup-box">
+                <div class="signup-title">註冊會員帳號
+                    <img src="../static/pic/icon/icon_close.png" class="signup-close">
+                </div>
+                <form name="signup_form">
+                    <input class="signup-input" type="text" placeholder="輸入姓名" name="signup_name"/>
+                    <input class="signup-input" type="email" placeholder="輸入電子郵件" name="signup_email"/>
+                    <input class="signup-input" type="password" placeholder="輸入密碼" name="signup_password"/>                                                       
+                </form>
+                    <button class="signup-btn" name="signup_btn" onclick="signupsubmit()">註冊新帳戶</button>
+                <div class="signup-message" id="signup-message"></div>
+                <div class="goto-signin">已經有帳戶了？點此登入</div>
+            </div>
+        </div>
+        <div class="Attraction-Slideshow" id="Attraction-Slideshow">
+            <div class="attraction-pic-box">
+                <a class="left-arrow" onclick="arrow(-1)">
+                    <img src="../static/pic/icon/btn_leftArrow.png">
+                </a>
+                <a class="right-arrow" onclick="arrow(1)">
+                    <img src="../static/pic/icon/btn_rightArrow.png">
+                </a>
+                <div class="dotsbox">
+                    <!-- <span class="dot" onclick="currentdot(1)"></span> -->
+                </div>
+            </div>
             <div class="Attraction-Bookingsession">
                 <div class="attraction-name"></div>
-            <div class="attraction-cat-mrt"></div>
-            <div class="booking-form">
-                <div class="booking-title">訂購導覽行程</div>
-                <div class="booking-content">以此景點為中心的一日行程，帶您探索城市角落故事</div>
-                <div class="booking-date">選擇日期 :</div>
-                    <input class="booking-date-input" type="date" value="yyyy-mm-dd">
-                <div class="booking-time">選擇時間：</div>
-                <div class="booking-time-radio">
-                    <input type="radio" name="time" id="morning" value="time">  <!-- 允許用戶選擇一個選項(兩個name要改成一樣的) -->
-                    <label for="morning">上半天</label>
-                    <input type="radio" name="time" id="afternoon" value="time">
-                    <label for="afternoon">下半天</label>
-                </div>                    
-                <div class="booking-fee">導覽費用：</div>
-                <div class="booking-TWD">新台幣:2000元</div>
-                <button class="booking-submit" type="submit">開始預約行程</button>
+                <div class="attraction-cat-mrt"></div>
+                <div class="booking-form">
+                    <div class="booking-title">訂購導覽行程</div>
+                    <div class="booking-content">以此景點為中心的一日行程，帶您探索城市角落故事</div>
+                    <div class="booking-date">選擇日期 :</div>
+                        <input class="booking-date-input" type="date" value="yyyy-mm-dd">
+                    <div class="booking-time">選擇時間：</div>
+                    <div class="booking-time-radio">
+                        <input type="radio" name="time" id="morning" value="time">  <!-- 允許用戶選擇一個選項(兩個name要改成一樣的) -->
+                        <label for="morning">上半天</label>
+                        <input type="radio" name="time" id="afternoon" value="time">
+                        <label for="afternoon">下半天</label>
+                    </div>                    
+                    <div class="booking-fee">導覽費用：</div>
+                    <div class="booking-TWD">新台幣:2000元</div>
+                    <button class="booking-submit" type="submit">開始預約行程</button>
+                </div>
             </div>
         </div>
     </div> 
     <hr>
-    <div class="Attraction-Info" >
+    <div class="Attraction-Info" id="Attraction-Info">
         <div class="attraction-introduce"></div>
         <div class="attraction-addres-title">景點地址：</div>
         <div class="attraction-addres"></div>
@@ -61,7 +94,8 @@
         <div class="attraction-transport"></div>
     </div>
 
-    <div class="footer">COPYRIGHT © 2021 台北一日遊</div>   
+    <div class="footer"id="footer">COPYRIGHT © 2021 台北一日遊</div>   
 <script type="text/javascript" src="../static/js/attraction.js"></script>
+<script type="text/javascript" src="../static/js/attractionuser.js"></script>
 </body>
 </html>
