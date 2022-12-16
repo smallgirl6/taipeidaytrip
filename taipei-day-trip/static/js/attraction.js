@@ -111,7 +111,6 @@ function booking_submit(){
             "time": time,
             "price": booking_TWD.textContent,
         };
-        console.log(req_body)
         //給fetch內header:的Content-type的資料型態
         let header = {
             "Content-type": "application/json",

@@ -376,7 +376,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
     display: block;
-    background: url(../static/pic/icon/icon_calendar.png) no-repeat;
+    background: url(../pic/icon/icon_calendar.png) no-repeat;
     width: 24px;
     height: 24px;
     border-width: thin;

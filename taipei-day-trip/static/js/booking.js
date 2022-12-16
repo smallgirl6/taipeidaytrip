@@ -58,6 +58,7 @@
     function deleteattraction(){
         fetch("/api/booking",{
             method:"DELETE",//連線後端，後端會消除存在資料庫中的資料
+            cache: "no-cache",
         }).then(function(response){
                 return response.json();
         }).then(function(result){

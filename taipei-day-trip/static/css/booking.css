@@ -424,6 +424,9 @@ body{
         width: 100%;
         padding-left: 10px;
     }
+    .booking-confirm-order{
+        font-size: 18px;
+    }   
     .hr1{
         width: 95%;
     }
