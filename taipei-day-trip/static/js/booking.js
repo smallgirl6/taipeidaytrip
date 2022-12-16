@@ -26,6 +26,7 @@
                         let attraction_fee = document.querySelector(".attraction-fee");
                         let attraction_address = document.querySelector(".attraction-address");
                         let attraction_img = document.querySelector(".attraction-img");
+                        let booking_total = document.querySelector(".booking-total");
                         
                         attraction_name.textContent = data["data"].attraction.name
                         attraction_date.textContent = data["data"].date
@@ -36,6 +37,7 @@
                             attraction_time.textContent="下午 1 點到下午 4 點"
                         }
                         attraction_fee.textContent = "新台幣" + data["data"].price + "元"
+                        booking_total.textContent= "總價:" + "新台幣" + data["data"].price + "元"
                         attraction_address.textContent = data["data"].attraction.address
                         attraction_img.src= data["data"].attraction.image
                     }
