@@ -88,5 +88,57 @@
         attraction_pic[index].style.display = "block";
         dots[index].className += " active";
       }
+//開始預約行程按鈕      
+function booking_submit(){
+    //有登入(有cookie)的話可以執行預約行程
+    if(document.cookie){
+        //抓取使用者輸入資料
+        // booking_time
+        let booking_time_radios = document.querySelectorAll('input[name="time"]') 
+            for (let booking_time_radio of booking_time_radios) { 
+                if (booking_time_radio.checked) { 
+                    time=booking_time_radio.id
+                } 
+            }
+        // attraction_id   
+        path=window.location.pathname
+        let patharray = path.split("/");
+
+        //給fetch內body:的request body的資料型態
+        let req_body = {
+            "attraction_id":patharray[2],
+            "date": booking_date_input.value,
+            "time": time,
+            "price": booking_TWD.textContent,
+        };
+        console.log(req_body)
+        //給fetch內header:的Content-type的資料型態
+        let header = {
+            "Content-type": "application/json",
+        };
+        fetch("/api/booking",{
+            method:"POST",
+            body:JSON.stringify(req_body),
+            headers:header,
+        }).then(function(response){
+                return response.json();//將資料用JSON的格式詮釋成:物件和陣列的組合
+        }).then(function(result){
+            let bookingfaild_message_id = document.getElementById("bookingfaild-message");
+            let bookingfaild_message_class = document.querySelector(".bookingfaild-message");
+            if (result["ok"]==true){
+                document.location.href="/booking" 
+            }
+            if (result["error"]==true){ // 把錯誤結果縣示在頁面
+                errormessage=result["message"]
+                bookingfaild_message_id.innerHTML = errormessage;
+                bookingfaild_message_class.style.display = "block"; 
+            }
+        });
+    }
+    //沒有登入(沒有cookie)的話顯示登入popup
+    if(!document.cookie){
+        signinsignup()
+    }
+}
    
     

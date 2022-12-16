@@ -430,6 +430,20 @@ input[type=radio] {
     font-size: 19px;
     font-weight: 400;
 }
+.bookingfaild-message{
+    position: absolute;
+    top: 290px;
+    left: 20px;
+    display: none;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    align-items: center;
+    text-align: center;
+    color:red;
+}
 hr{
     position: relative;
     width: 1200px;  

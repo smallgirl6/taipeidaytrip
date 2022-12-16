@@ -1,0 +1,436 @@
+body{
+    margin: 0px;   /*緊貼頂部(上下左右)，沒有空隙*/
+    background: #FFFFFF;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-size: 16px;
+    color: #666666;
+}
+.navigation-bar-frame{
+    position: fixed;/* 固定導覽列 */
+    width: 100%;
+    height: 54px;
+    top: 0;
+    z-index: 10;/* 滾動時會永遠顯示在最上面不會被蓋住 */
+    background: #FFFFFF;
+}
+.navigation-bar{
+    display:flex; /* 讓下一層次的項目水平排列 */
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 1200px;
+    height: 54px;
+    top: 0;
+    z-index: 10;/* 滾動時會永遠顯示在最上面不會被蓋住 */
+    background: #FFFFFF;
+}
+.left{
+    /* 台北一日遊 */
+    flex: none; /* 自動把剩下空間填滿 */
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+    color: #448899;
+}
+.right{
+    flex: auto; /* 固定配置*/
+    display: flex; /* 讓下一層次的項目水平置中 */
+    justify-content: flex-end;
+    align-items: center;
+}
+.item{
+    height: 14px;
+    line-height: 13px;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #666666;
+    padding: 10px;
+    gap: 10px;  
+    text-align: center;
+    cursor: pointer;
+}
+.booking-attraction{
+    width: 1000px;
+    margin-right: auto;
+    margin-left:  auto;
+    margin-top: 100px;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 16px;    
+}
+.Booking-box{
+    width: 1200px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-left:  auto;
+}
+.attraction-box{
+    display: flex;
+    margin-left: 100px;
+    margin-right: 120px;
+    margin-top:35px;
+}
+.attraction-pic{
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 250px;
+    height: 200px;  
+}
+.attraction-pic img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;  
+}
+.attraction-info{
+    flex: auto;
+    margin-left: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 14px;
+}
+.attraction-name-title{
+    display: flex;
+    color: #448899;
+    line-height: 30px;
+    align-items: center;
+    text-align: center;
+}
+.attraction-date-title{
+    display: flex;
+    margin-top:22px;
+}
+.attraction-date{
+    display: flex;
+    font-weight: 500;
+}
+
+.attraction-time-title{
+    display: flex;
+    margin-top:20px;
+}
+.attraction-time{
+    display: flex;
+    font-weight: 500;
+}
+.attraction-fee-title{
+    display: flex;
+    margin-top:20px;
+}
+.attraction-fee{
+    display: flex;
+    font-weight: 500;
+}
+.attraction-address-title{
+    display: flex;
+    margin-top:20px;
+}
+.attraction-address{
+    display: flex;
+    font-weight: 500;
+}
+.attraction-delete{
+    flex: none;
+    width: 30px;
+    height: 30px;
+}
+.hr1{
+    position: relative;
+    width: 1200px;  
+    margin: auto;
+    top: 40px;
+    border: 1px solid #E8E8E8;
+}
+.booking-contactbox{
+    margin-left: 100px;
+    margin-right: 90px;
+    margin-top:84px;
+    font-weight: 500
+}
+.contact-info{
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 16px;
+}
+.contact-name{
+    display: flex;
+    margin-top:24px;
+    line-height:24px;
+    align-items: center;
+}
+.contact-name-input{
+    width: 195px;
+    height: 35px;
+    margin-left: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+}
+.contact-email{
+    display: flex;
+    margin-top:15px;
+    line-height:24px;
+    align-items: center;
+}
+.contact-email-input{
+    width: 195px;
+    height: 35px;
+    margin-left: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+}
+.contact-phone{
+    display: flex;
+    margin-top:15px;
+    line-height:24px;
+    align-items: center;
+}
+.contact-phone-input{
+    width: 195px;
+    height: 35px;
+    margin-left: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+}
+.contact-attention{
+    margin-top:20px;
+    font-weight: 700;
+    line-height: 14px;
+}
+.hr2{
+    position: relative;
+    width: 1200px;  
+    margin: auto;
+    top: 45px;
+    border: 1px solid #E8E8E8;
+}
+.booking-paymentbox{
+    margin-left: 100px;
+    margin-right: 90px;
+    margin-top:89px;
+    font-weight: 500
+}
+.card-info{
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 16px;
+}
+.card-number{
+    display: flex;
+    margin-top:24px;
+    line-height:24px;
+    align-items: center;
+}
+.card-number-input{
+    width: 195px;
+    height: 35px;
+    margin-left: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+}
+.card-expirationdate{
+    display: flex;
+    margin-top:15px;
+    line-height:24px;
+    align-items: center;
+}
+.card-expirationdate-input{
+    width: 195px;
+    height: 35px;
+    margin-left: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+}
+.card-code{
+    display: flex;
+    margin-top:15px;
+    line-height:24px;
+    align-items: center;
+}
+.card-code-input{
+    width: 195px;
+    height: 35px;
+    margin-left: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+}
+.hr3{
+    position: relative;
+    width: 1200px;  
+    margin: auto;
+    top: 40px;
+    border: 1px solid #E8E8E8;
+}
+.booking-confirmbox{
+    margin-left: 100px;
+    margin-right: 90px;
+    margin-top:83px;
+    height: 140px;
+}
+.booking-total{
+    margin-right: 110px;
+    text-align:right;
+    font-weight: 700;
+    line-height: 14px;
+}
+.booking-confirm-order{
+    width: 173px;
+    height: 36px;
+    float: right;
+    line-height:36px;
+    margin-top:25px;
+    margin-bottom: 62px;
+    margin-right: 110px;
+    background: #448899;
+    border-radius: 5px;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 19px;
+}
+.no-booking-data{
+    display: none;
+    width: 1000px;
+    margin-right: auto;
+    margin-left:  auto;
+    margin-top: 35px;
+    margin-bottom: 40px;
+    font-weight: 500;
+    line-height: 24px;
+}
+.footer{
+    height: 104px;
+    text-align: center;
+    background-color: #757575;
+    line-height: 104px;
+    font-weight: 700;
+    font-size: 16px ;
+}
+@media (max-width:1200px){
+    .navigation-bar{
+        width: 100%
+    }
+    .booking-attraction{
+        width: 100%;
+        padding-left: 55px;
+    }
+    .Booking-box{
+        width: 90%;
+    }
+    .attraction-box{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .booking-contactbox{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .booking-paymentbox{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .booking-confirmbox{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .booking-total{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .booking-confirm-order{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .no-booking-data{
+        width: 100%;
+        padding-left: 55px;
+    }
+    .hr1{
+        width: 95%;
+    }
+    .hr2{
+        width: 95%;
+    }
+    .hr3{
+        width: 95%;
+    }
+}
+@media (max-width:599px){
+    .navigation-bar{
+        width: 100%;
+    }
+    .booking-attraction{
+        width: 100%;
+        padding-left: 10px;
+    }
+    .Booking-box{
+        width: 95%;
+        margin-left: 10px;
+    }
+    .attraction-box{
+        display: block;
+        margin-top: 0px;
+        margin-left:0px;
+        margin-right: 0px;
+    }
+    .attraction-pic{
+        width: 340px;
+        height: 256px;
+        margin-left:0px;
+        margin-right: 0px;
+    }
+    .attraction-pic img{
+        width: 340px;
+        height: 200px;
+        margin-top: 28px;    
+    }
+    .attraction-info{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .attraction-delete{
+        float:right;
+    }
+    .booking-contactbox{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .booking-paymentbox{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .booking-confirmbox{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .booking-total{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .booking-confirm-order{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .no-booking-data{
+        width: 100%;
+        padding-left: 10px;
+    }
+    .hr1{
+        width: 95%;
+    }
+    .hr2{
+        width: 95%;
+    }
+    .hr3{
+        width: 95%;
+    }
+}

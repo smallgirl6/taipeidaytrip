@@ -1,7 +1,6 @@
 #---------------------------讀取模組---------------------------------------------------------------------#
 from flask import *
 from flask import Blueprint, render_template, abort
-# from ..pool import conpool
 import sys
 sys.path.append('../')
 from pool import conpool

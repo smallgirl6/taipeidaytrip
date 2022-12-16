@@ -7,6 +7,8 @@ from api.attractions import attractions
 from api.attractions import attraction
 from api.user import user
 from api.user import user_auth
+from api.booking import booking
+
 #----------------------python flask網站後端相關設定--------------------------------------------------------------------------#
 app=Flask(__name__)
 # 註冊藍圖
@@ -16,6 +18,7 @@ app.register_blueprint(attractions, url_prefix='')
 app.register_blueprint(attraction, url_prefix='')
 app.register_blueprint(user, url_prefix='')
 app.register_blueprint(user_auth, url_prefix='')
+app.register_blueprint(booking, url_prefix='')
 
 
 app.config["JSON_AS_ASCII"]=False
