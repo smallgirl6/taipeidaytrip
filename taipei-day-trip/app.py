@@ -8,7 +8,6 @@ from api.attractions import attraction
 from api.user import user
 from api.user import user_auth
 from api.booking import booking
-
 #----------------------python flask網站後端相關設定--------------------------------------------------------------------------#
 app=Flask(__name__)
 # 註冊藍圖
