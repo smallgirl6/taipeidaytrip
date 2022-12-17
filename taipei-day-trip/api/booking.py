@@ -22,41 +22,43 @@ def api_booking():
             if token != None: #有token
                 #從前端接收資料
                 get_front_jsondata= request.get_json()
-                date_object = datetime.strptime(get_front_jsondata["date"], "%Y-%m-%d").date()
+                # date_object = datetime.strptime(get_front_jsondata["date"], "%Y-%m-%d").date()
                 if get_front_jsondata["date"]=="":
                     return jsonify({  #前端資料不完整
                         "error": True,
                         "message": "預定失敗，請確認所有選項都已填入"
                     }), 400
-                elif date_object<=date.today():
-                    return jsonify({  #使用者輸入過去或當天日期
-                        "error": True,
-                        "message": "無法預定過去時間或當天行程"
-                    }), 400
-                else:#有token且前端資料也完整
-                    try:
-                        #連接資料庫
-                        connection = conpool.get_connection()
-                        cursor = connection.cursor(dictionary=True,buffered=True)
-                        #解TOKEN並記錄使用者編號
-                        decoded_jwt = jwt.decode(token, "secret", algorithms=['HS256'])  #解開TOKEN
-                        #先看看資料庫有沒有預訂的行程，有的話就先刪掉
-                        cursor.execute("SELECT * FROM booking WHERE user_id =%s",(decoded_jwt["id"],))
-                        result = cursor.fetchone()
-                        if result!=None:
-                            cursor.execute("DELETE FROM booking WHERE user_id = %s",(decoded_jwt["id"],))
-                            connection.commit() # 確保數據被刪除
-                        #將前端資料插入資料庫
-                        insert_to_bookingtable = "INSERT INTO booking (user_id, attraction_id, date, time, price)  VALUES (%s, %s,%s, %s, %s)"
-                        val_bookingtable = (decoded_jwt["id"], get_front_jsondata["attraction_id"], get_front_jsondata["date"], get_front_jsondata["time"], get_front_jsondata["price"][4:8])
-                        cursor.execute(insert_to_bookingtable, val_bookingtable)  
-                        connection.commit() # 確保數據已提交到數據庫
-                        return jsonify({
-                            "ok": True,
-                        }),200
-                    finally:
-                        cursor.close()
-                        connection.close()
+                if get_front_jsondata["date"]!="": 
+                    date_object = datetime.strptime(get_front_jsondata["date"], "%Y-%m-%d").date()
+                    if date_object<=date.today():
+                        return jsonify({  #使用者輸入過去或當天日期
+                            "error": True,
+                            "message": "無法預定過去時間或當天行程"
+                        }), 400
+                    else:#有token且前端資料也完整
+                        try:
+                            #連接資料庫
+                            connection = conpool.get_connection()
+                            cursor = connection.cursor(dictionary=True,buffered=True)
+                            #解TOKEN並記錄使用者編號
+                            decoded_jwt = jwt.decode(token, "secret", algorithms=['HS256'])  #解開TOKEN
+                            #先看看資料庫有沒有預訂的行程，有的話就先刪掉
+                            cursor.execute("SELECT * FROM booking WHERE user_id =%s",(decoded_jwt["id"],))
+                            result = cursor.fetchone()
+                            if result!=None:
+                                cursor.execute("DELETE FROM booking WHERE user_id = %s",(decoded_jwt["id"],))
+                                connection.commit() # 確保數據被刪除
+                            #將前端資料插入資料庫
+                            insert_to_bookingtable = "INSERT INTO booking (user_id, attraction_id, date, time, price)  VALUES (%s, %s,%s, %s, %s)"
+                            val_bookingtable = (decoded_jwt["id"], get_front_jsondata["attraction_id"], get_front_jsondata["date"], get_front_jsondata["time"], get_front_jsondata["price"][4:8])
+                            cursor.execute(insert_to_bookingtable, val_bookingtable)  
+                            connection.commit() # 確保數據已提交到數據庫
+                            return jsonify({
+                                "ok": True,
+                            }),200
+                        finally:
+                            cursor.close()
+                            connection.close()
                     
             elif token == None:#沒有token
                 return jsonify({
