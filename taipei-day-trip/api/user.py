@@ -5,7 +5,6 @@ from flask import Flask, make_response
 from flask import request 
 import jwt  #JSON Web Token
 from flask_bcrypt import Bcrypt # 密碼雜湊化Hash函式庫 https://medium.com/seaniap/python-web-flask-如何雜湊化使用者密碼-b6dec03c3332
-# from ..pool import conpool
 import sys
 sys.path.append('../')
 from pool import conpool

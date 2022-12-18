@@ -6,6 +6,9 @@ body {
     font-size: 16px;
     color: #666666;
 }
+a {
+    text-decoration:none;
+}
 .navigation-bar-frame{
     position: fixed;/* 固定導覽列 */
     width: 100%;
@@ -376,7 +379,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
     display: block;
-    background: url(../static/pic/icon/icon_calendar.png) no-repeat;
+    background: url(../pic/icon/icon_calendar.png) no-repeat;
     width: 24px;
     height: 24px;
     border-width: thin;
@@ -429,6 +432,20 @@ input[type=radio] {
     line-height: 36px;
     font-size: 19px;
     font-weight: 400;
+}
+.bookingfaild-message{
+    position: absolute;
+    top: 290px;
+    left: 20px;
+    display: none;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    align-items: center;
+    text-align: center;
+    color:red;
 }
 hr{
     position: relative;
@@ -484,6 +501,7 @@ hr{
     font-style: normal;
     font-weight: 700;
     font-size: 16px ;
+    color: #FFFFFF;
 }
 @media (max-width:1200px){
     .navigation-bar{

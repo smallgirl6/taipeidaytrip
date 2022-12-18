@@ -148,7 +148,6 @@ function turnback_opacity_attraction(){
     }).then(function(response){
             return response.json();//將資料用JSON的格式詮釋成:物件和陣列的組合
     }).then(function(result){
-        console.log(result)
         const signin_signup = document.getElementById("signin-signup")
         if (result["data"] !=null){//如果使用者是在登入狀態(有TOKEN的話)
             document.getElementById("signin-signup").setAttribute("onclick", "signout()");
