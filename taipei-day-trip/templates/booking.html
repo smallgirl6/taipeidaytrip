@@ -14,7 +14,7 @@
             <div class="left">台北一日遊</div>
             </a>
             <div class="right">
-                <div class="item">預定行程</div>
+                <div class="item" id="my-booking">預定行程</div>
                 <div class="item" id="signout"onclick="signout()">登出系統</div>
             </div>
         </div>
@@ -50,37 +50,44 @@
         <div class="booking-contactbox">
             <div class="contact-info">您的聯絡資訊</div>
             <div class="contact-name">聯絡姓名：
-                <input class="contact-name-input" type="text">
+                <input class="contact-name-input" id="contact-name-input" type="text">
             </div>
             <div class="contact-email">連絡信箱：
-                <input class="contact-email-input" type="email">
+                <input class="contact-email-input" id="contact-email-input" type="email">
             </div>
             <div class="contact-phone">手機號碼：
-                <input class="contact-phone-input" type="text">
+                <input class="contact-phone-input" id="contact-phone-input" type="text">
             </div>
             <div class="contact-attention">請保持手機暢通，準時到達，導覽人員將用手機與您聯繫，務必留下正確的聯絡方式。</div>
         </div>
         <hr class="hr2">
-        <div class="booking-paymentbox">
+        <div class="booking-paymentbox"id="booking-paymentbox">
             <div class="card-info">信用卡付款資訊</div>
             <div class="card-number">卡片號碼：
-                <input class="card-number-input" type="password">
+                <div class="tpfield" id="card-number"></div>
             </div>
             <div class="card-expirationdate">過期時間：
-                <input class="card-expirationdate-input" type="month" value="MM/YY">
+                <div class="tpfield" id="card-expiration-date"></div>
             </div>
             <div class="card-code">驗證密碼：
-                <input class="card-code-input" type="text" placeholder="CVV">
+                <div class="tpfield" id="card-ccv"></div>
             </div>
         </div>
         <hr class="hr3">
         <div class="booking-confirmbox">
             <div class="booking-total"></div>
-            <button class="booking-confirm-order" type="submit">確認訂購並付款</button>
+            <button class="booking-confirm-order" type="submit" onclick="confirm_order()">確認訂購並付款</button>
+            <div class="order_faild_message"></div>
         </div>
     </div>
     <div class="no-booking-data"></div>
     <div class="footer"id="footer">COPYRIGHT © 2021 台北一日遊</div>
+<script src="https://js.tappaysdk.com/tpdirect/v5.13.1"></script>
+<script>
+     // 設置好等等 GetPrime 所需要的金鑰 測試:sandbox 實體上線後請切換:production
+    TPDirect.setupSDK(126867, "app_NskiU9p5gEhmSjFn5z1ag5wvutCKggukOGDX3FAewsdeyGnhUyt0Aw2fYeiq", "sandbox")
+</script>
+<script type="text/javascript" src="../static/js/mybookingbar.js"></script>
 <script type="text/javascript" src="../static/js/booking.js"></script>
 </body> 
 </html>

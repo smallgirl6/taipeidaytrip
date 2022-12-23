@@ -230,27 +230,20 @@ a {
     line-height:24px;
     align-items: center;
 }
-.card-number-input{
-    width: 195px;
-    height: 35px;
-    margin-left: 10px;
-    background: #FFFFFF;
-    border: 1px solid #E8E8E8;
-    border-radius: 5px;
-}
 .card-expirationdate{
     display: flex;
     margin-top:15px;
     line-height:24px;
     align-items: center;
 }
-.card-expirationdate-input{
-    width: 195px;
-    height: 35px;
+.tpfield{
+    width: 180px;
+    height: 18px;
     margin-left: 10px;
     background: #FFFFFF;
     border: 1px solid #E8E8E8;
     border-radius: 5px;
+    padding: 10px;
 }
 .card-code{
     display: flex;
@@ -258,14 +251,7 @@ a {
     line-height:24px;
     align-items: center;
 }
-.card-code-input{
-    width: 195px;
-    height: 35px;
-    margin-left: 10px;
-    background: #FFFFFF;
-    border: 1px solid #E8E8E8;
-    border-radius: 5px;
-}
+
 .hr3{
     position: relative;
     width: 1200px;  
@@ -299,6 +285,13 @@ a {
     color: #FFFFFF;
     font-weight: 400;
     font-size: 19px;
+}
+.order_faild_message{
+    display: none;
+    color: red;
+    margin-top:20px;
+    font-weight: 700;
+    line-height: 14px;
 }
 .no-booking-data{
     display: none;

@@ -12,7 +12,7 @@ sys.path.append('../')
 from pool import conpool
 #---------------------------Blueprint---------------------------------------------------------------------#
 booking = Blueprint('booking', __name__, static_folder='static',template_folder='templates',url_prefix='')
-#---------------------------Bcrypt---------------------------------------------------------------------#
+#---------------------------預定行程---------------------------------------------------------------------#
 #預定行程
 @booking.route("/api/booking",methods=["GET","POST","DELETE"])
 def api_booking():
@@ -22,7 +22,6 @@ def api_booking():
             if token != None: #有token
                 #從前端接收資料
                 get_front_jsondata= request.get_json()
-                # date_object = datetime.strptime(get_front_jsondata["date"], "%Y-%m-%d").date()
                 if get_front_jsondata["date"]=="":
                     return jsonify({  #前端資料不完整
                         "error": True,
@@ -132,11 +131,17 @@ def api_booking():
                 decoded_jwt = jwt.decode(token, "secret", algorithms=['HS256'])  #解開TOKEN
                 #利用得到的TOKEN去查詢使用者的預訂資料，以及其他表內的相關資料    
                 cursor.execute("DELETE FROM booking WHERE user_id = %s ORDER BY booking.order_date DESC LIMIT 1;",(decoded_jwt["id"],))
-                connection.commit() # 確保數據已提交到數據庫
+                connection.commit() # 確保數據已提交到數據庫  
                 return jsonify({
                     "ok": True,
                 }),200
             finally:
                 cursor.close()
                 connection.close()
+
+
+
+
+    
+
         
