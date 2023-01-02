@@ -63,7 +63,7 @@ function turnback_opacity_index(){
     const signup_close = document.querySelector(".signup-close");
     signup_close.addEventListener("click",function(){
         signup.style.display = "none";
-        turnback_opacity();
+        turnback_opacity_index();
     });
 //註冊的function，透過AJAX fetch API連線到/api/user送資料
     function signupsubmit(){  
@@ -152,23 +152,23 @@ function turnback_opacity_index(){
         console.log(result)
         const signin_signup = document.getElementById("signin-signup")
         if (result["data"] !=null){//如果使用者是在登入狀態(有TOKEN的話)
-            document.getElementById("signin-signup").setAttribute("onclick", "signout()");
-            signin_signup.textContent="登出系統"//右上將顯示登出系統
+            document.getElementById("signin-signup").setAttribute("onclick", "member()");
+            signin_signup.textContent="會員中心"//右上將顯示會員中心
         }
         else{
             document.getElementById("signin-signup").setAttribute("onclick", "signinsignup()");
-            signin_signup.textContent="登入/註冊"//右上將顯示登出系統
+            signin_signup.textContent="登入/註冊"
         } 
     });
-//登出的function，透過AJAX fetch API連線到/api/user/auth送資料
-    function signout(){
-        fetch("/api/user/auth",{
-            method:"DELETE",//啟動後端刪除使用者TOKEN的API
-        }).then(function(response){
-                return response.json();
-        }).then(function(result){
-            if (result["ok"] ==true){//如果順利刪除後會收到OK
-                window.location.reload();//重新載入
-            };          
-        });
-    }    
+//會員中心的function，如果按下會員中心會先檢查有沒有TOEKN，有TOEKN會連到登入頁面
+    function member(){
+        //有登入(有cookie)的話導向預定⾏程的⾴⾯  ( /booking )
+        if(document.cookie){
+            document.location.href="/member"    
+        }
+        //沒有登入(沒有cookie)的話顯示登入popup
+        if(!document.cookie){
+            signinsignup()
+        }
+    } 
+  

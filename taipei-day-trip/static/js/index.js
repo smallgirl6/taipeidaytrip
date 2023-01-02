@@ -1,5 +1,5 @@
 //載入景點資料(一開始的頁面)
-    let isLoading = false; //目前頁面是否正在載入API
+    let isLoading = false; //目前頁面是否正在載入API 
     fetch("/api/attractions?page=0").then(function(response){
         return response.json();
     }).then(function(data){
@@ -18,6 +18,7 @@
 
         //獲取所有的 <標籤> 元素
         let Attractions = document.querySelectorAll(".Attractions");
+        let Attraction = document.querySelectorAll(".Attraction");
         let Attraction_imgbox = document.querySelectorAll(".Attraction-imgbox");
         let Attraction_pic = document.querySelectorAll(".Attraction-pic"); 
         let Attraction_namebox = document.querySelectorAll(".Attraction-namebox"); 
@@ -25,7 +26,6 @@
         let Attraction_detail = document.querySelectorAll(".Attraction-detail");
         let Attraction_mrt = document.querySelectorAll(".Attraction-mrt");
         let Attraction_cat = document.querySelectorAll(".Attraction-cat");
-
         for(let i=0; i<count; i++){ 
             //名稱
             let nextname = document.createElement("div"); //創建一個空的div元素節點  
@@ -58,10 +58,13 @@
             let Attraction_link = document.querySelectorAll(".Attraction-link");
             for(let i = 0; i<Attraction_link.length; i++){
                 Attraction_link[i].href = `/attraction/${[i+1]}`;
-            }; 
-        };   
-    });
-
+            };
+        };
+        // const AttractionsS = document.querySelector(".Attractions");
+        // AttractionsS.style.display = "block";
+        // const loading = document.querySelector(".loading");
+        // loading.style.display = "none";         
+    }); 
 //載入第二頁後的資料+生成HTML的標籤
     //用Intersection Observer API，必須觀察1.page是否為null  2.觀察有關鍵字的第二頁或沒有關鍵字的第二頁
     let page = 1 
@@ -144,7 +147,7 @@
                     else{
                         observer.unobserve(footer);//不查了
                     }
-                    isLoading = false;   //當 fetch() 載入完畢，取得後端回應後，將 isLoading 設定為 false，表示現在沒有在載入 API 了。                                             
+                    isLoading = false;   //當 fetch() 載入完畢，取得後端回應後，將 isLoading 設定為 false，表示現在沒有在載入 API 了                                          
                 });
             }
         }); 

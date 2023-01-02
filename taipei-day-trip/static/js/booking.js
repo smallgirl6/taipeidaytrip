@@ -46,7 +46,7 @@
                         let footer = document.querySelector(".footer");
                         Booking_box.style.display = "none";
                         no_booking_data.style.display = "block";
-                        no_booking_data.textContent="目前沒有任何待預訂的行程"
+                        no_booking_data.textContent="目前沒有任何待預訂的行程，若要查詢歷史訂單，請點擊右上角的會員中心"
                         footer.style.height= "865px";
                     }    
                 });                   
@@ -70,20 +70,7 @@
         });
     };
     
-//登出的function，透過AJAX fetch API連線到/api/user/auth送資料
-    function signout(){
-        fetch("/api/user/auth",{
-            method:"DELETE",//啟動後端刪除使用者TOKEN的API
-        }).then(function(response){
-                return response.json();
-        }).then(function(result){
-            if (result["ok"] ==true){//如果順利刪除後(沒有cookie)會回到首頁
-                document.location.href="/" ;
-            };          
-        });
-
-    } ;
-//串接金流                
+//串接金流    
     // 把 TapPay 內建輸入卡號的表單給植入到 div 中
     let fields = {
         number: {
@@ -180,7 +167,6 @@
                         }
                         else//付款失敗(後端TapPay 提供的付款 API那邊收到錯誤的回應導致失敗)(有訂購編號)
                             order_faild_message.style.display = "block";
-                            console.log(result["data"]["payment"].message)
                             order_faild_message.textContent=result["data"]["payment"].message;
                             isclick = true;
                     }

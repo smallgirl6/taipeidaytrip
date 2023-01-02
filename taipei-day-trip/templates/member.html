@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>   
+    <!-- 控制網頁縮放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>台北一日遊</title>
+    <link rel="stylesheet" type="text/css" type="text/css" href="{{ url_for('static', filename='css/member.css') }}" >
+    <!-- <link rel="stylesheet" type="text/css" type="text/css" href="./member.css" >    -->
+</head>
+<body>
+    <div class="navigation-bar-frame" id="navigation-bar-frame">
+        <div class="navigation-bar">
+            <a href="/">
+            <div class="left">台北一日遊</div>
+            </a>
+            <div class="right">
+                <div class="item" id="my-booking">預定行程</div>
+                <div class="item" id="signout"onclick="signout()">登出系統</div>
+            </div>
+        </div>
+    </div>
+    <div class="member" id="member">會員資料</div>
+    <div class="member-info-box">
+        <div class="member-pic">
+            <img class="member-img">
+        </div>
+        <div class="member-info">
+            <div class="member-name-title">姓名：
+                <div class="member-name"></div>
+            </div>
+            <div class="member-account-title">電子信箱：
+                <div class="member-account"></div>
+            </div>
+        </div>  
+    </div>
+    <hr class="hr1">
+    <div class="order-history-title">您的歷史訂單：</div>
+    <div class="order-history" id="order-history">
+        <!-- <div class="order-history-box">
+            <div class="order-history-pic">
+                <img class="order-history-img">
+            </div>
+            <div class="order-history-info">
+                <div class="order-history-orderid-title">訂單編號：
+                    <div class="order-history-orderid"></div>
+                </div>
+                <div class="order-history-name-title">台北一日遊：
+                    <div class="order-history-name"></div>
+                </div>
+                <div class="order-history-date-title">日期：
+                    <div class="order-history-date"></div>
+                </div>
+                <div class="order-history-time-title">時間：
+                    <div class="order-history-time"></div>
+                </div>
+                <div class="order-history-fee-title">費用：
+                    <div class="order-history-fee"></div>
+                </div>
+                <div class="order-history-address-title">地點：
+                    <div class="order-history-address"></div>
+                </div>
+                <div class="contact-name-title">聯絡人姓名：
+                    <div class="contact-name"></div>
+                </div>
+                <div class="contact-phone-title">連絡電話：
+                    <div class="contact-phone"></div>
+                </div>
+                <div class="contact-email-title">連絡信箱：
+                    <div class="contact-email"></div>
+                </div>
+            </div>    
+        </div> -->
+    </div>    
+    <hr class="hr2">  
+    <div class="no-order-data"></div>
+    <div class="footer"id="footer">COPYRIGHT © 2021 台北一日遊</div>
+
+<script type="text/javascript" src="../static/js/mybookingbar.js"></script>
+<script type="text/javascript" src="../static/js/member.js"></script>
+</body> 
+</html>

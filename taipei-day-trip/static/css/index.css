@@ -365,6 +365,20 @@ a {
     aspect-ratio:9/2;
     text-align: center;
 }
+/* .loading{
+    width: 100%;
+    z-index: 99999;
+    margin-top: 55px;
+    margin-left: auto; 
+    margin-right: auto;
+    margin-bottom: 200px; 
+    text-align: center;
+}
+.loading img {
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+} */
 .Attractions{
     text-align: center;/*查無結果文字對應到的STYLE */
     display: grid;
@@ -467,6 +481,7 @@ a {
     font-size: 16px ;
     color: #FFFFFF;
 }
+
 
 @media (max-width:1200px){
     .navigation-bar{
