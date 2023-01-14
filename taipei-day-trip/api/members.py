@@ -11,8 +11,10 @@ import sys
 sys.path.append('../')
 from pool import conpool
 import re
+# import boto3  # S3
 #---------------------------Blueprint---------------------------------------------------------------------#
 member = Blueprint('member', __name__, static_folder='static',template_folder='templates',url_prefix='')
+member_upload_pic = Blueprint('member_upload_pic', __name__, static_folder='static',template_folder='templates',url_prefix='')
 #---------------------------Bcrypt---------------------------------------------------------------------#
 #根據使用者的編號取得訂單資料 /api/member  methods=['GET']
 @member.route("/api/member",methods=["GET"])
@@ -69,3 +71,43 @@ def api_member():
             "error": True,
             "message": "未登入"
         }), 403
+
+#接收使用者傳送的圖片將照片傳送到到AWS S3存儲桶    /api/member/upload-pic  methods=['POST']  
+# 設置S3連接
+    # s3 = boto3.client(
+    #     's3',
+    #     aws_access_key_id='AKIAZX5ENUOBPO67LGQZ', # 獲取AWS訪問密鑰和密鑰ID
+    #     aws_secret_access_key='qDOnFFNeWZk3NyApuiSUO9GAwdzHWVr8tLzh4U8t'
+    # )
+# @member_upload_pic.route("/api/member/upload-pic",methods=["POST"])
+# def api_member_pic():
+#     #從前端接收資料
+#     formData = request.files["formData"]
+#     try:
+#         filename = secure_filename(formData.filename)
+#         acl="public-read"
+#         s3.upload_fileobj(
+#             file,
+#             'bucket-name',
+#             file.filename,
+#             ExtraArgs={
+#                 "ACL": acl,
+#                 "ContentType":  file.content_type
+#             }
+#         )
+        
+#     except Exception as e:
+#             resp = jsonify(e)
+#             resp.status_code =200
+#             return resp
+
+
+    # # 上傳照片到S3存儲桶
+    # s3.upload_file('/path/to/local/image.jpg', 'smallgirl6', 'image.jpg')
+    # picture_url = s3.generate_presigned_url(
+    #         ClientMethod = "get_object",
+    #         Params = {
+    #             "Bucket": os.getenv("BUCKET_NAME"),
+    #             "Key": picture_name
+    #         }
+    #     )

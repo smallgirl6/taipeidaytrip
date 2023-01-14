@@ -154,3 +154,36 @@
             };          
         });
     } ;
+//上傳照片的function
+//     function uploaddata(){
+//     const userimage= document.querySelector('#uploader-user-pic').files[0];  
+//     const usermessage = document.getElementById('text-content-input').value; 
+//     const errormessage= document.querySelector('.error')
+//     if ((userimage !=null) && (usermessage.length!=0)){
+//         let formData = new FormData();  //創建了一個新的 FormData 對象(表單數據)
+//         formData.append('usermessage', usermessage);
+//         formData.append('userimage', userimage); 
+//         fetch("/api/image-uploade",{
+//             method:"POST",
+//             body:formData,
+//         }).then(function(response){
+//                 return response.json();//將資料用JSON的格式詮釋成:物件和陣列的組合
+//         }).then(function(result){ 
+//             if (result["ok"] ==true){
+//                 document.querySelector('#uploader-user-pic').value = "";
+//                 document.querySelector('#text-content-input').value = "";
+//                 location.reload();
+//             }
+//             if (result["error"] ==true){
+//                 errormessage.textContent="圖片上傳失敗"
+//                 document.querySelector('#uploader-user-pic').value = "";
+//                 location.reload();     
+//             }
+//         });
+//     }
+//     else{
+//         errormessage.textContent="請輸入訊息以及選擇要上傳圖片"
+//     }
+// };
+
+            

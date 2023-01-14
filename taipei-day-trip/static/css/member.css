@@ -121,11 +121,6 @@ a {
     font-size: 19px;
     line-height: 16px; 
 }
-.order-history{
-    width: 1000px;
-    margin-right: auto;
-    margin-left:  auto;
-}
 .order-history-box{
     display: flex;
     width: 1000px;
@@ -136,8 +131,8 @@ a {
 .order-history-pic{
     margin-left: 8px;
     margin-right: 8px;
-    width: 375px;
-    height: 300px;  
+    width: 250px;
+    height: 200px;  
 }
 .order-history-pic img{
     width: 100%;
@@ -192,27 +187,6 @@ a {
 .order-history-address{
     font-weight: 500;
 }
-.contact-name-title{
-    display: flex;
-    margin-top:22px;
-}
-.contact-name{
-    font-weight: 500;
-}
-.contact-phone-title{
-    display: flex;
-    margin-top:22px;
-}
-.contact-phone{
-    font-weight: 500;
-}
-.contact-email-title{
-    display: flex;
-    margin-top:22px;
-}
-.contact-email{
-    font-weight: 500;
-}
 .hr2{
     position: relative;
     width: 1200px;  
@@ -238,7 +212,6 @@ a {
     line-height: 104px;
     font-weight: 700;
     font-size: 16px ;
-    color: #FFFFFF;
 }
 @media (max-width:1200px){
     .navigation-bar{
@@ -262,25 +235,6 @@ a {
     .hr2{
         width: 95%;
     } 
-}
-@media (max-width:765px){
-    .order-history-box{
-        display: block;
-        margin-top: 50px;
-        margin-left:40px;
-    }
-    .order-history-info{
-        margin-top: 50px;
-    }
-    .order-history{
-        width: 100%;
-    }
-    .hr1{
-        width: 95%;
-    }
-    .hr2{
-        width: 95%;
-    }
 }
 @media (max-width:599px){
     .navigation-bar{
@@ -315,12 +269,9 @@ a {
         width: 100%;
         padding-left: 10px;
     }
-    .order-history{
-        width: 100%;
-    }
     .order-history-box{
         display: block;
-        margin-top: 50px;
+        margin-top: 0px;
         margin-left:0px;
         margin-right: 0px;
     }
