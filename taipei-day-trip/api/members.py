@@ -14,7 +14,7 @@ import re
 # import boto3  # S3
 #---------------------------Blueprint---------------------------------------------------------------------#
 member = Blueprint('member', __name__, static_folder='static',template_folder='templates',url_prefix='')
-member_upload_pic = Blueprint('member_upload_pic', __name__, static_folder='static',template_folder='templates',url_prefix='')
+# member_upload_pic = Blueprint('member_upload_pic', __name__, static_folder='static',template_folder='templates',url_prefix='')
 #---------------------------Bcrypt---------------------------------------------------------------------#
 #根據使用者的編號取得訂單資料 /api/member  methods=['GET']
 @member.route("/api/member",methods=["GET"])
@@ -76,8 +76,8 @@ def api_member():
 # 設置S3連接
     # s3 = boto3.client(
     #     's3',
-    #     aws_access_key_id='AKIAZX5ENUOBPO67LGQZ', # 獲取AWS訪問密鑰和密鑰ID
-    #     aws_secret_access_key='qDOnFFNeWZk3NyApuiSUO9GAwdzHWVr8tLzh4U8t'
+    #     aws_access_key_id='', # 獲取AWS訪問密鑰和密鑰ID
+    #     aws_secret_access_key=''
     # )
 # @member_upload_pic.route("/api/member/upload-pic",methods=["POST"])
 # def api_member_pic():
