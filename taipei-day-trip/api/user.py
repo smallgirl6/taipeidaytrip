@@ -8,6 +8,7 @@ from flask_bcrypt import Bcrypt # 密碼雜湊化Hash函式庫 https://medium.co
 import sys
 sys.path.append('../')
 from pool import conpool
+import re
 #---------------------------Blueprint---------------------------------------------------------------------#
 user = Blueprint('user', __name__, static_folder='static',template_folder='templates',url_prefix='')
 user_auth = Blueprint('user_auth', __name__, static_folder='static',template_folder='templates',url_prefix='')
@@ -34,11 +35,24 @@ def api_user():
                 "error": True,
                 "message": "此信箱已經被註冊"
             }),400    
-        #姓名、email、密碼不可以空白
+        #姓名、email、password不可以空白
         if (len(signup_name)== 0) or (len(signup_email)== 0) or (len(signup_password)== 0):
             return jsonify({
                 "error": True,
                 "message": "請輸入姓名、信箱、密碼"
+            }),400
+        #email要有@ 最後以.com結尾
+        if (signup_email.find("@")==-1) or (signup_email.endswith(".com")==False):
+            return jsonify({
+                "error": True,
+                "message": "信箱格式不正確"
+            }),400
+        #password要是6-20位字母
+        passwordcheck = re.compile(r'[0-9a-zA-Z]{6,20}')
+        if passwordcheck.fullmatch(signup_password) is None:
+            return jsonify({
+                "error": True,
+                "message": "密碼必須為6-20位的數字或是字母"
             }),400
         #如果沒有找到相同email的話，則將資料插入資料庫完成註冊
         if result == None:

@@ -91,6 +91,7 @@ a {
     line-height: 104px;
     font-weight: 700;
     font-size: 16px ;
+    color: #FFFFFF;
 }
 @media (max-width:1200px){
     .navigation-bar{

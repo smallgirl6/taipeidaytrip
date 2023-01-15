@@ -15,7 +15,7 @@
             </a>
             <div class="right">
                 <div class="item" id="my-booking">預定行程</div>
-                <div class="item" id="signout"onclick="signout()">登出系統</div>
+                <div class="item" id="member" onclick="member()">會員中心</div>
             </div>
         </div>
     </div>
@@ -83,9 +83,13 @@
     <div class="no-booking-data"></div>
     <div class="footer"id="footer">COPYRIGHT © 2021 台北一日遊</div>
 <script src="https://js.tappaysdk.com/tpdirect/v5.13.1"></script>
-<script>
-     // 設置好等等 GetPrime 所需要的金鑰 測試:sandbox 實體上線後請切換:production
-    TPDirect.setupSDK(126867, "app_NskiU9p5gEhmSjFn5z1ag5wvutCKggukOGDX3FAewsdeyGnhUyt0Aw2fYeiq", "sandbox")
+
+<!-- 把私密檔案放在另一個JS檔案在IMPORT進來 -->
+<script src="../static/js/tappay_id&key.js" type="module"></script>
+<script type="module">
+    // 設置好等等 GetPrime 所需要的金鑰 測試:sandbox 實體上線後請切換:production
+    import {app_id,app_key}  from '../static/js/tappay_id&key.js';
+    TPDirect.setupSDK(app_id, app_key, "sandbox")
 </script>
 <script type="text/javascript" src="../static/js/mybookingbar.js"></script>
 <script type="text/javascript" src="../static/js/booking.js"></script>
