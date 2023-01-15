@@ -5,7 +5,8 @@
  
  
 <h2>DEMO</h2>
-[![IMAGE ALT TEXT](https://github.com/smallgirl6/taipeidaytrip/blob/main/%E7%84%A1%E9%A1%8C%E3%81%AE%E5%8B%95%E7%94%BB-%E2%80%90-Clipchamp%E3%81%A7%E4%BD%9C%E6%88%90%20(1).gif)]
+
+![台北一日遊 - Google Chrome 2023-01-16 04-31-36](https://user-images.githubusercontent.com/111422800/212563202-7bac4914-fa16-431a-9c90-61c65bbc679b.gif)
 
  <br>
 <h2>Detail</h2>
