@@ -12,7 +12,7 @@
  <br>
 <h2>Detail</h2>
    <ul>
-      <li>WEB site : <a href="http://3.113.54.225:3000/">Click</a></li>
+      <li>WEB site : <a href="http://taipeidaytrip.hyggenini.com:3000/">Click</a></li>
       <li>API document : <a href="https://app.swaggerhub.com/apis-docs/padax/taipei-trip/1.0.0">Click</a></li>
       <li>Figma : <a href="https://www.figma.com/file/CeFwqBSbNWZbWz2ih4YS6z">Click</a></li>
 
