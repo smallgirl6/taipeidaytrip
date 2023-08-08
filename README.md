@@ -1,7 +1,7 @@
 <h1>Taipei-day-trip</h1>
 
  <h2>Introduction</h2>
- <p>This is a one-day tour website for Taipei. The API data and web design are provided by the teacher of the Wehelp web development training camp. Based on the data provided by the teacher, we have designed the front-end and back-end of the website. Users can book a tour and complete the online booking process using a credit card. In addition, users can view their past paid orders in their member center. Here, we provide a test credit card number for Tappay: <b>4242 4242 4242 4242</b>, expiration date:  <b>01/23</b>, verification code:  <b>123</b>, which can be used for testing the payment process.</p>
+ <p>This is a one-day tour website for Taipei. The API data and web design are provided by the teacher of the Wehelp web development training camp. Based on the data provided by the teacher, we have designed the front-end and back-end of the website. Users can book a tour and complete the online booking process using a credit card. In addition, users can view their past paid orders in their member center. Here, we provide a test credit card number for Tappay: <b>4242 4242 4242 4242</b>, expiration date:  <b>01/24</b>, verification code:  <b>123</b>, which can be used for testing the payment process.</p>
  
  
 <h2>DEMO</h2>
