@@ -29,12 +29,13 @@
       <li>Member system</li>
       <li>History orders</li>
       <li>Responsive Web Design</li>
+      <li>SSL certificate</li>
     </ul>
  <br>
  
   <h2>Backend ＆＆　Frontend　Technique</h2>
     <ul>
-      <li>AWS EC2</li>
+      <li>AWS EC2 (Moved to GCP in December 2023)</li>
       <li>Python flask</li>
       <li>MySQL</li>
       <li>bcrypt</li>
